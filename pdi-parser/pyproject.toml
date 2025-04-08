@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pdfquery = "^0.4.3"
+ipykernel = "^6.29.5"
+pypdf2 = "^3.0.1"
 
 
 [build-system]
