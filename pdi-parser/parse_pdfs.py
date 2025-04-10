@@ -9,6 +9,10 @@ with open("pdf_urls.txt", "r") as fd:
     )
 
 # %%
+OUTPUT_DIR = "../pdi-txt"
+
 for name, url in names_and_urls:
     pdf_buffer = url_to_buffer(url)
-    pdf_buffer_to_txt_file(pdf_buffer, f"../txt/{name}.txt")
+    pdf_buffer_to_txt_file(pdf_buffer, f"{OUTPUT_DIR}/{name}.txt")
+
+# %%

@@ -33,7 +33,7 @@ def pdf_buffer_to_txt_file(buffer: IOBase, file_path: str):
 
     Parameters:
      - buffer: A binary buffer containing a PDF file.
-     - file_name: The output file path.
+     - file_path: The output file path.
     """
     print(f"Writing to {file_path} from buffer...")
     pdf = PyPDF2.PdfReader(buffer)
@@ -41,7 +41,7 @@ def pdf_buffer_to_txt_file(buffer: IOBase, file_path: str):
     with open(file_path, "w") as fd:
         for idx, page in enumerate(pdf.pages):
             print(
-                f"Writing page: {page.indirect_ref.idnum} ({100 * (idx + 1)/ total_pages:.2f}%)",
+                f"Writing page: {idx + 1} ({100 * (idx + 1)/ total_pages:.2f}%)",
             )
             fd.write(page.extract_text())
     print(f"{file_path} created successfully")
