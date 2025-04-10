@@ -40,8 +40,12 @@ def pdf_buffer_to_txt_file(buffer: IOBase, file_path: str):
     total_pages = len(pdf.pages)
     with open(file_path, "w") as fd:
         for idx, page in enumerate(pdf.pages):
-            print(
-                f"Writing page: {idx + 1} ({100 * (idx + 1)/ total_pages:.2f}%)",
-            )
-            fd.write(page.extract_text())
+            try:
+                txt = page.extract_text()
+                print(
+                    f"Writing page: {idx + 1} ({100 * (idx + 1)/ total_pages:.2f}%)",
+                )
+                fd.write(txt)
+            except Exception:
+                print(f"Failed to extract page {idx + 1}. Skipping page.")
     print(f"{file_path} created successfully")
