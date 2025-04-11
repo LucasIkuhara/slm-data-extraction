@@ -8,8 +8,11 @@ class PromptBuilder:
             return fd.read()
 
     def make_prompt(self) -> str:
-        template = """Dadas as informações de contexto a abaixo, retorne uma estimativa para as variáveis Distância da Costa, Comprimento Total do Duto em Km, Número de Tramos, Massa Linear de Aço em kg por Metro, Massa Linear de Polímero em kg por Metro;
-        no formato JSON seguindo o exemplo {
+        template = """Dadas as informações de contexto a abaixo, retorne uma estimativa para as
+        variáveis Distância da Costa (distCosta), Comprimento Total do Duto em Km (compTotalDuto), 
+        Número de Tramos (numTramos), Massa Linear de Aço em kg por Metro (massaLinearAco), 
+        Massa Linear de Polímero em kg por Metro (massaLinearPolimero); no formato JSON seguindo
+        o exemplo {
             "distCosta": number,
             "compTotalDuto": number,
             "numTramos": number,
