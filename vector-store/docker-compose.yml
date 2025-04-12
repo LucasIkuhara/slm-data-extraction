@@ -1,0 +1,9 @@
+services:
+  vector-store:
+    image: pgvector/pgvector:pg17
+    env_file:
+      - .env
+    ports:
+      - 5432:5432
+    volumes:
+      - ${PG_VOL_PATH}:/var/lib/postgresql/data
