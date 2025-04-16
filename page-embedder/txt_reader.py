@@ -26,5 +26,5 @@ def get_files() -> Tuple[str, int, str]:
 
             with open(f"{BASE_PATH}/{txt_dir}/{txt_file}", "r") as f:
                 txt = f.read()
-                read.append((txt_file, page, txt))
+                read.append((txt_dir, page, txt))
         return read

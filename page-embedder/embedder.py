@@ -22,13 +22,13 @@ with engine.connect() as conn:
 
     exporter = EmbedExporter(conn)
     files = get_files()
-    print(files[0])
 
     for file_name, page, raw_txt in files:
         emb = embed(
             model=model,
             input=[raw_txt],
         )
+        print(f"Embedding page {page} from {file_name}")
         embedding_vec = np.array(emb.embeddings[0])
         exporter.save_embedding(file_name, page, embedding_vec, model)
 
