@@ -1,6 +1,6 @@
 from ollama import embed
 from pgvector.psycopg2 import register_vector
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, exc
 from os import environ
 from embed_exporter import EmbedExporter
 import numpy as np
@@ -30,6 +30,14 @@ with engine.connect() as conn:
         )
         print(f"Embedding page {page} from {file_name}")
         embedding_vec = np.array(emb.embeddings[0])
-        exporter.save_embedding(file_name, page, embedding_vec, model)
+
+        try:
+            exporter.save_embedding(file_name, page, embedding_vec, model)
+        except exc.IntegrityError:
+            print(
+                f"Page embedding for {file_name} page {page} already exists. Skipping..."
+            )
+            conn.rollback()
+            continue
 
     print("Done exporting data.")

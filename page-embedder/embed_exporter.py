@@ -22,6 +22,9 @@ class EmbedExporter:
          - page_num: The page from which the text was extracted.
          - embedding: The embedding array.
          - model_name: The embedding model used.
+
+         Raises:
+          - sqlalchemy.exc.IntegrityError: In case the embedding already exists.
         """
         statement = text(
             "INSERT INTO EMBEDDING (source_file, page_num, embedding, model) VALUES (:some_file, :page_num, :emb, :model)"
