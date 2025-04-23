@@ -3,7 +3,7 @@ from pgvector.psycopg2 import register_vector
 from sqlalchemy import create_engine, exc
 from os import environ
 from embed_exporter import EmbedExporter
-import numpy as np
+from embed_fn import embed_str
 from txt_reader import get_files
 
 
@@ -24,12 +24,9 @@ with engine.connect() as conn:
     files = get_files()
 
     for file_name, page, raw_txt in files:
-        emb = embed(
-            model=model,
-            input=[raw_txt],
-        )
+
         print(f"Embedding page {page} from {file_name}")
-        embedding_vec = np.array(emb.embeddings[0])
+        embedding_vec = embed_str(raw_txt, model)
 
         try:
             exporter.save_embedding(file_name, page, embedding_vec, model)
