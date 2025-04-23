@@ -3,9 +3,9 @@ import numpy as np
 from sqlalchemy import text
 
 
-class EmbedExporter:
+class EmbeddingStore:
     """
-    Handles the exporting of embeddings to a database.
+    Handles the searching and saving of embeddings to a database.
     """
 
     def __init__(self, db_conn: Connection):

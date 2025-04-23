@@ -1,8 +1,7 @@
-from ollama import embed
 from pgvector.psycopg2 import register_vector
 from sqlalchemy import create_engine, exc
 from os import environ
-from embed_exporter import EmbedExporter
+from embedding_store import EmbeddingStore
 from embed_fn import embed_str
 from txt_reader import get_files
 
@@ -20,7 +19,7 @@ with engine.connect() as conn:
     # Register pg vector types
     register_vector(conn, True)
 
-    exporter = EmbedExporter(conn)
+    exporter = EmbeddingStore(conn)
     files = get_files()
 
     for file_name, page, raw_txt in files:
