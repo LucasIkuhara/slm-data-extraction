@@ -15,7 +15,6 @@ class PageReader:
     def __init__(self, base_path: str):
         self.base_path = base_path
 
-    @cache
     def get_files(self, doc_filter: Optional[List[str]] = None) -> List[DocumentPage]:
         """
         Get all available raw text files. Optionally can be filtered by documents.
@@ -44,20 +43,22 @@ class PageReader:
                     read.append(res)
             return read
 
-    def get_file(self, doc_name: str, page: int) -> DocumentPage:
+    def get_file(self, doc_name: str, page: int) -> Optional[DocumentPage]:
         """
-        Get a single page from a document.
+        Get a single page from a document. If the
+        page is not found, None is returned
 
         Args:
             doc_name: The base document.
             page: The page number.
 
         Returns:
-            An object with the text content and metadata.
+            An object with the text content and metadata if found.
         """
         all_pages = self.get_files([doc_name])
 
-        for a, curr_page, text in all_pages:
-            if page == curr_page:
-                print(a, curr_page, text)
-                return
+        for curr_page in all_pages:
+            if page == curr_page.page:
+                return curr_page
+
+        return None
