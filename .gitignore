@@ -1,3 +1,4 @@
 *.pyc
 pdi-txt/
 *.env
+rag/slm_extractor/logs/*

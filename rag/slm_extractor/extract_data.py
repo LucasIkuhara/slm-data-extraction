@@ -26,7 +26,7 @@ with engine.connect() as conn:
     # Initialize components
     store = EmbeddingStore(conn)
     page_reader = PageReader(BASE_PATH)
-    rag = Rag(store, page_reader, MODEL)
+    rag = Rag(store, page_reader, MODEL, True)
     prompter = PromptBuilder("pdi-fpso-p-32.txt", rag)
 
     # Prompt model
@@ -40,4 +40,4 @@ with engine.connect() as conn:
             },
         ],
     )
-    print(response.message.content)
+    print("SLM Response:\n\n", response.message.content)

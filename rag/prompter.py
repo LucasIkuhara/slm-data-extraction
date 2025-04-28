@@ -2,11 +2,16 @@ from rag import Rag
 
 
 class PromptBuilder:
-    def __init__(self, context_file: str, rag: Rag):
+    def __init__(self, context_file: str, rag: Rag, debug_mode: bool = False):
         self.base_file = context_file
         self.rag = rag
+        self.debug = debug_mode
 
     def load_context(self, prompt: str) -> str:
+
+        if self.debug:
+            print("RAG Prompt:\n\n", prompt)
+
         ctx = self.rag.get_context_by_prompt(prompt, [self.base_file])
         ctx_txt = ""
         for page in ctx:
@@ -30,4 +35,8 @@ class PromptBuilder:
         }
         """
 
-        return self.load_context(ctx_prompt) + template
+        prompt = self.load_context(ctx_prompt) + template
+        if self.debug:
+            print("Final Prompt:\n\n", prompt)
+
+        return prompt
