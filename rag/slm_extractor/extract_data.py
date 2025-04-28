@@ -1,6 +1,6 @@
 from ollama import chat, ChatResponse
 from prompter import PromptBuilder
-from rag.rag import Rag
+from rag import Rag
 from pgvector.psycopg2 import register_vector
 from sqlalchemy import create_engine
 from os import environ

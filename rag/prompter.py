@@ -5,7 +5,6 @@ class PromptBuilder:
     def __init__(self, context_file: str, rag: Rag):
         self.base_file = context_file
         self.rag = rag
-        self.ctx = self.load_context()
 
     def load_context(self, prompt: str) -> str:
         ctx = self.rag.get_context_by_prompt(prompt, [self.base_file])
