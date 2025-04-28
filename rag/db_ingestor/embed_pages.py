@@ -27,16 +27,18 @@ with engine.connect() as conn:
     exporter = EmbeddingStore(conn)
     files = text_reader.get_files()
 
-    for file_name, page, raw_txt in files:
+    for txt_file in files:
 
-        print(f"Embedding page {page} from {file_name}")
-        embedding_vec = embed_str(raw_txt, model)
+        print(f"Embedding page {txt_file.page} from {txt_file.file_name}")
+        embedding_vec = embed_str(txt_file.raw_txt, model)
 
         try:
-            exporter.save_embedding(file_name, page, embedding_vec, model)
+            exporter.save_embedding(
+                txt_file.file_name, txt_file.page, embedding_vec, model
+            )
         except exc.IntegrityError:
             print(
-                f"Page embedding for {file_name} page {page} already exists. Skipping..."
+                f"Page embedding for {txt_file.file_name} page {txt_file.page} already exists. Skipping..."
             )
             conn.rollback()
             continue
