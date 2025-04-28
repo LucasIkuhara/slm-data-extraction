@@ -15,8 +15,9 @@ class PromptBuilder:
         ctx = self.rag.get_context_by_prompt(prompt, [self.base_file])
         ctx_txt = ""
         for page in ctx:
-            tag = f"{page.source_document} - {page.page}"
-            ctx_txt += f"<{tag}> {page.raw_text} <{tag}/>"
+            tag = f"{page.source_document}: pg. {page.page}"
+            pg_txt = f"<{tag}>\n {page.raw_text} \n<{tag}/>\n"
+            ctx_txt += pg_txt
 
         return ctx_txt
 

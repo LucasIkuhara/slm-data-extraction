@@ -37,7 +37,6 @@ class Rag:
         files = []
         for document, page, _, _ in query_result:
             page_txt = self.page_reader.get_file(document, page)
-            v = DocumentPage(document, page, page_txt)
-            files.append(v)
+            files.append(page_txt)
 
         return files
