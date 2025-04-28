@@ -26,8 +26,8 @@ with engine.connect() as conn:
     # Initialize components
     store = EmbeddingStore(conn)
     page_reader = PageReader(BASE_PATH)
-    rag = Rag(store, page_reader, MODEL, True)
-    prompter = PromptBuilder("pdi-fpso-p-32.txt", rag)
+    rag = Rag(store, page_reader, MODEL)
+    prompter = PromptBuilder("pdi-fpso-p-32.txt", rag, True)
 
     # Prompt model
     msg = prompter.make_prompt("A distância da costa medida em kilometros")
