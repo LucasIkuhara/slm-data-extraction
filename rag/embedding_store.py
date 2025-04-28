@@ -18,14 +18,14 @@ class EmbeddingStore:
         """
         Saves the embeddings and its related metadata at a database.
 
-        Parameters:
-         - file_name: The original file from which the text was extracted.
-         - page_num: The page from which the text was extracted.
-         - embedding: The embedding array.
-         - model_name: The embedding model used.
+        Args:
+            file_name: The original file from which the text was extracted.
+            page_num: The page from which the text was extracted.
+            embedding: The embedding array.
+            model_name: The embedding model used.
 
-         Raises:
-          - sqlalchemy.exc.IntegrityError: In case the embedding already exists.
+        Raises:
+            sqlalchemy.exc.IntegrityError: In case the embedding already exists.
         """
         statement = text(
             "INSERT INTO EMBEDDING (source_file, page_num, embedding, model) VALUES (:some_file, :page_num, :emb, :model)"
@@ -49,16 +49,19 @@ class EmbeddingStore:
         model_name: str,
         n: int = 10,
         source_files: Optional[List[str]] = None,
-    ) -> Tuple[str, int, np.array, str]:
+    ) -> Tuple[str, int, np.ndarray, str]:
         """
-        Parameters:
-         - query_embedding: The embedding of the RAG query.
-         - model_name: The embedding model used.
-         - n: The max number of results to return.
-         - source_files: An array of base files to look through.
+        Get the closest N (default N=10) RAG pages and their indexes considering
+        cosine distance from a given prompt.
+
+        Args:
+            query_embedding: The embedding of the RAG query.
+            model_name: The embedding model used.
+            n: The max number of results to return.
+            source_files: An array of base files to look through.
 
         Returns:
-          A list of tuples containing the source file, page number, embedding and model used.
+            A list of tuples containing the source file, page number, embedding and model used.
         """
 
         query_args = {
@@ -70,6 +73,7 @@ class EmbeddingStore:
         where_clause = "WHERE model = :model"
         if source_files:
             where_clause += " AND source_file IN (:files) "
+            query_args["files"] = tuple(source_files)
 
         statement = text(
             f"""SELECT source_file, page_num, embedding, model FROM EMBEDDING 
