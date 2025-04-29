@@ -29,16 +29,16 @@ with engine.connect() as conn:
 
     for txt_file in files:
 
-        print(f"Embedding page {txt_file.page} from {txt_file.file_name}")
-        embedding_vec = embed_str(txt_file.raw_txt, model)
+        print(f"Embedding page {txt_file.page} from {txt_file.source_document}")
+        embedding_vec = embed_str(txt_file.raw_text, model)
 
         try:
             exporter.save_embedding(
-                txt_file.file_name, txt_file.page, embedding_vec, model
+                txt_file.source_document, txt_file.page, embedding_vec, model
             )
         except exc.IntegrityError:
             print(
-                f"Page embedding for {txt_file.file_name} page {txt_file.page} already exists. Skipping..."
+                f"Page embedding for {txt_file.source_document} page {txt_file.page} already exists. Skipping..."
             )
             conn.rollback()
             continue

@@ -1,1 +1,3 @@
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-fpso-p-32.pdf
+http://127.0.0.1:8000/ec10-flexiveis-final-v8.pdf
+http://127.0.0.1:8000/relatorio-estudo-de-caso-6-versao-final.pdf

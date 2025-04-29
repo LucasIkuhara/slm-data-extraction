@@ -27,21 +27,21 @@ class PageReader:
         """
 
         # Get documents list
-        dirs = os.listdir(self.base_path)
+        documents = os.listdir(self.base_path)
         if doc_filter:
-            dirs = [x for x in dirs if x in doc_filter]
+            documents = [x for x in documents if x in doc_filter]
 
-        for txt_dir in dirs:
-            files = os.listdir(f"{self.base_path}/{txt_dir}")
-            read = []
+        read = []
+        for doc in documents:
+            files = os.listdir(f"{self.base_path}/{doc}")
             for txt_file in files:
                 page = int(txt_file.split(".")[0])
 
-                with open(f"{self.base_path}/{txt_dir}/{txt_file}", "r") as f:
+                with open(f"{self.base_path}/{doc}/{txt_file}", "r") as f:
                     txt = f.read()
-                    res = DocumentPage(txt_dir, page, txt)
+                    res = DocumentPage(doc, page, txt)
                     read.append(res)
-            return read
+        return read
 
     def get_file(self, doc_name: str, page: int) -> Optional[DocumentPage]:
         """
