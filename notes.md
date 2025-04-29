@@ -9,4 +9,7 @@ Alternative
 4. Relevance can be evaluated by cosine distance
 5. Distance can be computed on a variable by variable basis with a different prompt for each
 
+gemma3 doesn't support embedding
+qwen3:14b has a 128k context window
 
+TODO: Add different tables for embedding lengths
