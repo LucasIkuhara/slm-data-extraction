@@ -4,6 +4,7 @@ from os import environ
 from embedding_store import EmbeddingStore
 from embed_fn import embed_str
 from page_reader import PageReader
+from ollama import ResponseError
 
 
 conn_str = environ.get("DB_CONN_STRING")
@@ -30,9 +31,8 @@ with engine.connect() as conn:
     for txt_file in files:
 
         print(f"Embedding page {txt_file.page} from {txt_file.source_document}")
-        embedding_vec = embed_str(txt_file.raw_text, model)
-
         try:
+            embedding_vec = embed_str(txt_file.raw_text, model)
             exporter.save_embedding(
                 txt_file.source_document, txt_file.page, embedding_vec, model
             )
@@ -42,5 +42,10 @@ with engine.connect() as conn:
             )
             conn.rollback()
             continue
-
+        except ResponseError as err:
+            print(
+                f"Page embedding for {txt_file.source_document} page {txt_file.page} failed:",
+                err,
+            )
+            continue
     print("Done exporting data.")
