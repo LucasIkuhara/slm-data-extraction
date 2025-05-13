@@ -37,7 +37,9 @@ with engine.connect() as conn:
             {
                 "role": "user",
                 "content": msg,
-            },
+            }
         ],
+        options={"num_ctx": 4096 * 2},
     )
     print("SLM Response:\n\n", response.message.content)
+    print("SLM tokens used:\n\n", response.prompt_eval_count)

@@ -12,7 +12,7 @@ class PromptBuilder:
         if self.debug:
             print("RAG Prompt:\n\n", prompt)
 
-        ctx = self.rag.get_context_by_prompt(prompt, [self.base_file])
+        ctx = self.rag.get_context_by_prompt(prompt, [self.base_file], 30)
         ctx_txt = ""
         for page in ctx:
             tag = f"{page.source_document}: pg. {page.page}"
