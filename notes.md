@@ -11,3 +11,9 @@ Usar num_ctx maior q o do modelo gera lixo : ex ">4"
 Investigar influência da temperatura no resultado
 Investigar usar docling -> possivelmente extração melhor de tabelas
 Investigar langchain para RAG -> automatizar a quantidade de páginas usadas
+
+To initialize hcp cli, run:
+
+```sh
+hcp profile init --vault-secrets
+```

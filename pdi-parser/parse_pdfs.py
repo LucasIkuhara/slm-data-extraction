@@ -9,7 +9,7 @@ with open("pdf_urls.txt", "r") as fd:
     )
 
 # %%
-OUTPUT_DIR = "../pdi-txt"
+OUTPUT_DIR = "../plain-pages"
 
 for name, url in names_and_urls:
     pdf_buffer = url_to_buffer(url)
