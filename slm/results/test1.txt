@@ -1,0 +1,463 @@
+RAG Prompt:
+
+ A distância da costa medida em kilometros
+Final Prompt:
+
+ <pdi-fpso-p-32: pg. 10>
+     Programa de Descomissionamento do FPSO P -32    Pág. 9
+O documento está estruturado nos seguintes capítulos:  
+Capítulo 1 : apresenta as principais informações que permitem a identificação do
+contexto em que está inserido o projeto;
+Capítulo 2 : apresenta os objetivos (geral e específicos) e o público -alvo do projeto;
+Capítulo 3 : descreve a s diretrizes de SMS que fundamentam o planejamento e a
+execução do projeto;
+Capítulo 4 : apresenta a síntese da motivação para o descomissionamento da P -32;
+Capítulo 5 : descreve o sistema de produção da P -32 e define o escopo, especialmente
+associado ao sistema submarino, do projeto de descomis sionamento;
+Capítulo 6 : descreve as instalações a serem descomissionadas;
+Capítulo 7 : apresenta a caracterização dos meios físico, biótico  e socioeconômico no s
+quais  esse projeto está inserido;
+Capítulo 8 : descreve as alternativas de descomissionamento (destinação final) para os
+risers , sistema de ancoragem e plataforma;
+Capítulo 9 : descreve as principais fases do projeto de descomissionament o (listadas
+abaixo) e apresenta o cronograma físico de execução das atividades.
+oFase A:  Parada de Operação
+oFase B:  Limpeza dos Oleodutos
+oFase C:  Desconexões e Tamponamentos Submarinos
+oFase D:  Pull Out  e Recolhimento dos Risers
+oFase E:  Despressurização, Drenagem e Limpeza da Planta de Processamento
+oFase F:  Limpeza dos Tanques
+oFase G:  Remoção e Transporte de Produtos Qu ímicos
+oFase H:  Desconexão do Sistema de Ancoragem e Destinação da Plataforma
+oFase I:  Remoção de Pesos Mortos e Materiais/Resíduos no Leito Marinho 
+<pdi-fpso-p-32: pg. 10/>
+<pdi-fpso-p-32: pg. 155>
+ Descrição  da Unidade Marítima - DUM
+Petrobras 322 - Descrição da InstalaçãoPág
+30 / 48
+Processo Administrativo na ANP
+48610.203302/2019-02Carta
+UN-BC 0266/2020Revisão 05
+03/2020
+Heliponto 2 - -
+Lado interno  das acomodações --10
+Lado externo  das acomodações 71-
+Casa de bombas 2--
+Praça de Máquinas 29-
+ 
+- Sistema  de Combate  a Incêndio por Dilúvio:
+A finalidade desse  sistema é resfriar os  equipamentos adjacentes a  alguma área 
+onde esteja ocorrendo  um incêndio, mantendo  a integridade dos equipamentos 
+e impedindo que  o fogo se propague e se torne incontrolável.
+        Áreas cobertas pelo Sistema  de Combate  a Incêndio  por Dilúvio:
+ 
+Descrição
+Turret
+Planta  de Processo
+ 
+- Sistema  Fixo  de Combate a Incêndio por Espuma:
+A P-32 é equipada  com tanque de armazenamento de espuma, canhões 
+monitores fixo e  portátil, sistema de pressurização com cilindros  de CO2 e rede 
+de sprinklers, que  cobrem a área de carga, convés principal e  heliponto. 
+        Este sistema é  formado pelos  equipamentos listados abaixo:
+ 
+Equipamento QuantPressão de 
+ProjetoPressão de 
+Operação PMTA Set PSV Pot VazãoCap
+Tanque de Espuma CO 2 3 12 kgf/cm² 1 kgf/cm² 12 kgf/cm² 10 kgf/cm² NA NA3,4 
+m³
+Bombas de  Concentrado 2 12 kgf/cm² 12 kgf/cm² NA NA NA 14,4 m³/hNA
+Tanque de LGE / água 1 12  kgf/cm² 1 kgf/cm² 12 kgf/cm² 10 kgf/cm² NA NA6,0 
+ 
+O tanque de armazenamento de  líquido  gerador de espuma está  
+descrito no item 2.3.1.
+2.6.3.2 -  Sistema Fixo de Combate a  Incêndio por Gás Inerte
+- Sistema  com CO 2 
+<pdi-fpso-p-32: pg. 155/>
+<pdi-fpso-p-32: pg. 67>
+  
+                                       Programa de Descomissionamento do FPSO P -32                                  Pág. 66 
+O Projeto  de Monitoramento da Atividade Pesqueira – PMAP Norte Fluminense, realizado 
+pela Fundação Instituto de Pesca do Estado do Rio de Jane iro (FIPERJ, 2017), obteve 
+dados sobre a pesca no período d e julho a dezembro de 2017, no qual  obse rva-se que, 
+de toda a produção n o período, a pesca artesanal foi responsável por 95% e a pesca 
+industrial por 5%. Os municípios com maior produção estimada f oram São Francisco de 
+Itabapoana (35,9%), seguido de Macaé (21,8%), São João da Barra (17,8%) e Campos 
+dos Goytacazes (17,6%).  
+Destaca -se ainda que os municípios com incidência de pesca artesanal na LDA indicada 
+(160 m), segundo o referido estudo, foram Sã o João da Barra (500 metros), Macaé (Bacia 
+de Campos), São Francisco de Itabapoana (2.500m) e Campos dos Goytacazes (até 
+200m), além de Cabo Frio (FIPERJ, 2018), associados a frotas de maior porte, espinheis 
+e linhas diversas.  
+Quanto ao turismo, o litoral da Bacia de Campos apresenta municípios de grande 
+concentração de atividades turísticas, com destaque para a Região dos Lagos 
+(principalmente os municípios de Arraial do Cabo, Armação dos Búzios e Cabo Frio). 
+Esses municípios atraem turistas e veranistas, gerando um dinamismo local significativo, 
+inclusive em termos econômicos, com a criação de empregos e renda através de 
+atividades relacionadas a este setor (ex.: artesanato, comércio e serviços).  
+Referente às atividades de E&P, estas impulsionam setores d a economia através da 
+intensificação da demanda de bens e serviços relacionados ao setor de petróleo e gás, 
+induzindo o setor terciário pela atração de investimentos e pela geração de renda.  
+Apesar d e a P-32 não ser uma unidade produtora, ou seja, não apr esentar poço s 
+produtores interligado s, considera -se importante a contextualização dos royalties  na Bacia 
+de Campos, onde se observou um aumento expressivo na arrecadação de alguns 
+municípios que se beneficiam da produção de petróleo através do recebimento de 
+royalties  e participações especiais, os quais potencializaram o poder de investimento dos 
+serviços públicos, mesmo que nem todos os gestores tenham aplicado tais recursos da 
+melhor forma.  
+Os royalties  do petróleo foram criados com o objetivo de caracte rizar-se como 
+compensação financeira mensal paga ao Estado pelas empresas que exploram e 
+produzem petróleo (recurso natural não renovável), visando garantir os benefícios de hoje  
+<pdi-fpso-p-32: pg. 67/>
+<pdi-fpso-p-32: pg. 171>
+ Descrição  da Unidade Marítima - DUM
+Petrobras 325 - GlossárioPág
+46 / 48
+Processo Administrativo na ANP
+48610.203302/2019-02Carta
+UN-BC 0266/2020Revisão 05
+03/2020
+PLEMPipeline End Manifold  - Coletor de Extremidade de 
+Duto Submarino - Conjunto de tubulações e válvulas 
+montado sobre quadro  estrutural metálico, instalado 
+na extremidade submarina  de um ou mais dutos  
+submarinos.
+PLETPipeline End Terminal  - Extremidade de Duto com 
+Conexão Vertical - Conexão vertical  montada sobre 
+quadro estrutural metálico instalado  na extremidade 
+submarina de um ou mais dutos submarinos.
+RiserTubulação que liga, através do turret,  o FPSO  ao 
+sistema submarino. Os risers podem  ser de produção 
+ou de injeção. Os risers  de produção escoam os 
+fluidos da formação para a FPSO, já os risers de 
+injeção são utilizados para inserir gás ou água de 
+forma a otimizar a produção.
+SDVShut Down Valve: Elemento final de controle  
+automático acionado pelo sistema  de parada de 
+emergência cuja função  é bloquear  determinado 
+circuito de processo e equipamento  que contenha 
+hidrocarboneto sob pressão.
+UPS(Uninterrupted Power Supply) Sistema de Energia 
+Ininterrupta 
+<pdi-fpso-p-32: pg. 171/>
+<pdi-fpso-p-32: pg. 83>
+  
+                                       Programa de Descomissionamento do FPSO P -32                                  Pág. 82 
+Os cinco oleodutos que ainda contém hidrocarbonetos em seu interior  (provenientes das 
+plataformas P -18, P -19 e P-20) serão limpos através de procedimento de circulação de 
+água do mar  desaerada , com escoamento em regime turbulento, acrescido de  passagem 
+de pig e diesel para melhorar a eficácia da limpeza. O escoamento se dará no sentido das 
+plataformas semissubmers íveis (P -18, P -19 e P -20) para a P -32, que receberá os pigs de 
+limpeza e o efluente de água oleosa.   
+O procedimento de limpeza dos cinco oleodutos supracitados pode ser resumido , de forma 
+simplificada,  nas seguintes etapas:  
+ Inserção de pig espuma;  
+ Bombeio de diesel para formação de colchão de limpeza;  
+ Inserção de outro pig espuma (o colchão de diesel permanecerá entre os pigs); 
+ Circulação de água do mar desaerada ; 
+ Inserção de pig do tipo Flexipig  (rígido) ; 
+ Realização de nova circulação de água d o mar desaerada ; 
+ Após o recebimento do Flexipig  em P -32, será mantida  a circulação de água do mar 
+desaerada até que o TOG (Teor de Óleo s e Graxas – variável de controle da limpeza 
+do duto) de chegada na P -32 seja menor ou igual a 15 ppm em, no mínimo, três 
+medições consecutivas, com amostras coletadas em  intervalo s de pelo menos 30 min. 
+Destaca -se que a amostragem de água para verificação da condição de limpeza dos 
+oleodutos, ou seja, para medição do TOG, será realizada no ponto de coleta de amostra 
+de óleo de cada oleoduto, no turret  da P -32 (ponto de chegada dos risers  no FPSO). A 
+medição do TOG nessas amostras será realizada através do método de 
+espectrofotometria de absorção molecular (análises realizadas no laboratório da 
+plataforma).  
+Para o Oleoduto P -27/P-32, que já teve o inventário de óleo re movido na desativação da 
+P-27 e atualmente contém em seu interior fluido  composto por água salgada com presença 
+de sequestrante de oxigênio e biocida, a limpeza consistirá  na substituição desse fluido  
+(que será en viado para a P -32) por água do mar desaerada e isenta de biocida.  Dessa 
+forma, será realizada circulação de água do mar desaerada, bombeada a partir da P -20,  
+<pdi-fpso-p-32: pg. 83/>
+<pdi-fpso-p-32: pg. 140>
+ Descrição  da Unidade Marítima - DUM
+Petrobras 322 - Descrição da InstalaçãoPág
+15 / 48
+Processo Administrativo na ANP
+48610.203302/2019-02Carta
+UN-BC 0266/2020Revisão 05
+03/2020
+emergência, tanque  da unidade da bomba de incêndio, tanque para os  fornos,  
+tanque para as caldeiras, tanque do  DGR.
+         Os principais equipamentos do  sistema de óleo diesel são:
+ 
+Equipamento Quant.Pressão de Projeto
+PMTASet 
+PSVPotênciaVazão  / 
+Capacidade
+Bomba de  transferência 
+principal (MB-1006)1 3,5 kgf/cm² NA NA 30 kW 80 m³/h
+Bomba de  transferência aux.  
+(MB-1008)1 3,5 kgf/cm² NA NA 3,7 kW 10 m³/h
+Centrífuga (SC-1000A/B) 2 NA NA NA 5,5 kW 3,3 m³/h
+2.2.1.5 -  Sistema de Ar Comprimido
+        O sistema  é subdividido em sistema de ar comprimido para partida  do 
+gerador à diesel e em sistema  de ar comprimido requerido para os 
+instrumentos/ar de serviços.  É provido de  duas unidades compressoras,  sendo  
+uma reserva. No caso  de alto consumo do ar, a pressão do sistema cai e o 
+compressor reserva entra em operação. O ar utilizado nos instrumentos é seco 
+através das unidades  secadoras de  ar. Os compressores são unidades do tipo 
+rotativo, livres de óleo,  de dois  estágios  de compressão, acionados por um  
+motor elétrico com sistema de resfriamento do ar por água doce.
+        Antes de ser distribuído aos  consumidores, o ar seco é armazenado nos 
+vasos de ar  de instrumentos e  de ar de instrumentos essenciais. O ar de 
+instrumentação é  enviado, através da  válvula de saída do vaso  de ar  de 
+instrumentos, para o  anel de  ar de  distribuição do compartimento  de utilidades, 
+convés principal, compartimento de distribuição  geral  e painéis. O  ar de serviço 
+é distribuído, através  da válvula de saída do  vaso de ar  de serviço, para o  
+convés principal, o casario  e os consumidores  da utilidade.
+        Os principais equipamentos do sistema  são:
+ 
+EquipamentoQuantidadeVazão  / 
+CapacidadePotência Temp.Pressão  
+de 
+ProjetoPMTA Set PSV
+Compressor de Ar de  controle (C-UC-
+1000A/B)2 650 Nm³/h 3,7 kW 30 ºC10 
+kgf/cm²12 
+kgf/cm²10 
+kgf/cm²
+Compressor de Ar de  Partida (C-UC-
+1002)1 12 m³/h 3,7 kW 30 ºC25 
+kgf/cm²35 
+kgf/cm²33 
+kgf/cm²
+Compressor de Ar de  Emergência (C-
+UC-1003)1 4,5 m³/h 3,5 kW 30 ºC25 
+kgf/cm²27 
+kgf/cm²25 
+kgf/cm²
+Unidade secadora de ar (SUA-513402 
+A/B)2 240 m³/h 1,5 kW 35 ºC8,8 
+kgf/cm²10 
+kgf/cm²NA 
+<pdi-fpso-p-32: pg. 140/>
+<pdi-fpso-p-32: pg. 152>
+ Descrição  da Unidade Marítima - DUM
+Petrobras 322 - Descrição da InstalaçãoPág
+27 / 48
+Processo Administrativo na ANP
+48610.203302/2019-02Carta
+UN-BC 0266/2020Revisão 05
+03/2020
+de um  destes detectores (08 ppm) gera um alarme na Sala de Controle Central, 
+a ativação de  dois detectores (08 ppm) fecha  os dampers da área  afetada, no 
+caso de detecção em tomada de ar. A ativação  de dois  detectores (20ppm) gera 
+alarme na Sala de  Controle Central  e Parada de Emergência de nível  3 ESD-3).
+  
+- Detectores de CO:
+        Os detectores estão instalados conforme tabela acima.  A ativação  de um  
+destes detectores (39 ppm) deverá gerar  alarme na Sala de Controle  Central, e 
+a ativação de  um destes detectores (95 ppm) deverá gerar alarme na Sala  de 
+Controle Central e  desligar a tomada de ar próxima.
+ 
+-Detectores de CH 4
+        Os detectores de CH4 estão instalados conforme tabela acima.  A atuação 
+está baseada nos níveis de  concentração de hidrocarbonetos gasosos 
+presentes no ambiente. A ativação de  um destes detectores  (20% LII) gera  um 
+alarme na Sala de  Controle. Adicionalmente, a ativação de dois  detectores (60% 
+LII) em uma mesma área alarme na sala de controle central  e parada de 
+emergência de nível 3 (ESD-3).
+2.6.2 - Sistema  de Alarme de Emergência
+        O sistema  de alarme de  emergência na  plataforma é sonoro e luminoso  
+(luzes de sinalização). O  sistema sonoro possui som  intermitente  para indicação  
+de emergência  e sinal contínuo para indicação  de "preparação  para abandono".  
+O alarme luminoso é dado por luzes de  sinalização e buzina no painel de 
+controle de incêndio  na sala de controle. Estes sinais luminosos indicam a área 
+envolvida.
+2.6.3 - Sistema  de Combate a Incêndio
+        O sistema  de combate a incêndio é composto pelos  seguintes sub-
+sistemas:
+2.6.3.1 -  Sistema de Combate a  Incêndio por Água
+        Tem a finalidade de extinguir o  fogo em caso de incêndio, através do uso  
+<pdi-fpso-p-32: pg. 152/>
+<pdi-fpso-p-32: pg. 133>
+ Descrição  da Unidade Marítima - DUM
+Petrobras 322 - Descrição da InstalaçãoPág
+8 / 48
+Processo Administrativo na ANP
+48610.203302/2019-02Carta
+UN-BC 0266/2020Revisão 05
+03/2020
+2 - Descrição da Instalação
+2.1 - CARACTERÍSTICAS PRINCIPAIS DA UNIDADE
+        O FPSO P-32 é  uma unidade flutuante de  tratamento, armazenagem  e 
+transferência de óleo com as  seguintes  características:
+2.1.1 - Características Físicas
+a) Comprimento total : 
+337,10 m
+b) Comprimento entre  perpendiculares  : 
+320,00 m
+c) Boca :  
+54,50 m
+d) Pontal :  
+27,80 m
+e) Arqueação : 
+bruta = 137.086; líquida = 105.575 mil toneladas
+f) Calado de projeto : 
+21,618 m
+g) Capacidade de  Alojamento  : 
+171 pessoas. Este número poderá variar  de acordo com a fase do ciclo de vida 
+da instalação, ou necessidade de realização de atividades que requeiram 
+acréscimo de mão de obra, e será determinado pelo número máximo admissível  
+de vagas disponíveis para salvatagem descrito no item 2.4. Sistema de 
+Salvatagem e condicionadas às regras estabelecidas por regulamentações 
+específicas do Ministério  do Trabalho e Emprego e  da Marinha  do Brasil.
+2.1.2 - Características Operacionais
+        Abaixo  informamos algumas  características  da instalação que têm valores  
+variáveis em função das condições operacionais,  população embarcada, etc. 
+Destacamos que,  durante auditorias  ou inspeções na plataforma, poderão ser 
+encontrados valores  diferentes dos informados neste momento, não 
+caracterizando não  conformidades.
+        Os valores informados são médios, referentes ao ano de 2019: 
+<pdi-fpso-p-32: pg. 133/>
+<pdi-fpso-p-32: pg. 169>
+ Descrição  da Unidade Marítima - DUM
+Petrobras 325 - GlossárioPág
+44 / 48
+Processo Administrativo na ANP
+48610.203302/2019-02Carta
+UN-BC 0266/2020Revisão 05
+03/2020
+5 - Glossário
+ANPAgência Nacional do Petróleo,  Gás Natural e 
+Biocombustíveis
+Árvore de NatalEquipamento mecânico  instalado na cabeça-de-poço, 
+composto, basicamente, de conectores e válvulas, 
+com a finalidade de interligar as tubulações internas e 
+externas ao poço,  e de permitir  o controle  do fluxo de 
+fluidos através dele.  Pode ser chamada  de árvore de 
+natal molhada, usada  em poços submarinos e árvore 
+de natal seca,  usada em poços de completação seca.
+BBBombordo - Bordo esquerdo  da embarcação, 
+olhando-se de  ré para vante.
+BEBoreste - Bordo à direita  da embarcação,  olhando-se 
+de ré para vante.
+BSWBasic Sediments and Water. Teor de sedimentos e 
+água presente no  óleo  produzido.
+CaladoAltura de uma embarcação que fica abaixo da linha 
+de água, durante a operação ou em trânsito.
+CISBaseia-se na utilização de Controladores Lógicos 
+Programáveis (PLCs) para execução de funções de 
+controle e intertravamento.
+Decks(Convés) - Qualquer  área de trabalho  em estruturas 
+oceânicas (main deck, upper deck,  cellar  deck,  drilling 
+deck, etc.).
+ECOSRecurso de hardware/software especializado  no 
+processo e visualização de dados de campo  em um 
+formato satisfatório,  deixando  para outros sistemas a 
+obrigação de coletar os  dados.
+FormaçãoExtenso pacote sedimentar com características 
+litológicas semelhantes. 
+<pdi-fpso-p-32: pg. 169/>
+<pdi-fpso-p-32: pg. 138>
+ Descrição  da Unidade Marítima - DUM
+Petrobras 322 - Descrição da InstalaçãoPág
+13 / 48
+Processo Administrativo na ANP
+48610.203302/2019-02Carta
+UN-BC 0266/2020Revisão 05
+03/2020
+VE-1022 A/B 2 300 m³/h 0,40 kPa 0,18 kW
+VE-1023 A/B 2 1.500 m³/h 0,45 kPa 0,55 kW
+VE-1024 A/B 2 1.600 m³/h 0,60 kPa 0,62 kW
+VE-1025 1 2.000 m³/h 0,50 kPa 0,84 kW
+VE-1026 A/B 2 300 m³/h 0,40 kPa 0,18 kW
+VE-1027 1 1.100 m³/h 0,38 kPa 0,42 kW
+VE-1028 A/B 2 1.600 m³/h 0,60 kPa 0,62 kW
+VE-1029 A/B 2 1.100 m³/h 0,20 kPa 0,42 kW
+VE-1030 A/B 2 1.500 m³/h 0,38 kPa 0,42 kW
+VE-1031A/B 2 20.000 m³/h 0,25 kPa 4,70 kW
+VE-1032 A/B 2 1400  m³/h 0,40 kPa 0,33 kW
+VE-1033 A/B 2 1400  m³/h 0,40 kPa 0,33 kW
+2.2.1.3 -  Sistema de Fornecimento e  Armazenamento de Água
+a) Água  Doce : 
+         A água produzida pelos geradores  de água doce é enviada  para o tanque 
+de água doce.  O armazenamento é feito em dois tanques estruturais,  situados  
+na praça  de máquinas entre as cavernas n°  6 e n° 14.
+        Para o recebimento de  água doce de  embarcações de apoio, existe  uma 
+tomada com conexão  universal para  mangueiras  nas estações de recebimento, 
+localizadas no  convés  principal, junto das tomadas de óleo diesel.
+        A distribuição é feita através de duas bombas de água doce, que aspiram 
+dos tanques  de água doce e descarregam nos  tanques
+hidróforos, enviando destes tanques para  os consumidores.
+        O consumo  de água doce divide-se em consumo para uso humano e para  
+uso industrial.
+        Os principais equipamentos do sistema  são:
+ 
+Equipamento Quant.Pressão
+de
+projetoPMTASet
+PSVPotênciaVazão /
+CapacidadeTemp.
+Gerador de  água  doce (Alfa-
+laval (UD-5122500)1 1 kgf/cm²1 
+kgf/cm²1 
+kgf/cm²NA 70 m³/h 30 °C
+Gerador de  água  doce 
+(Sassakura) (UD-1000A/B)2 1 kgf/cm²2,75 
+kgf/cm²1 
+kgf/cm²NA 45 m³/h 30 °C
+Bomba de  água  doce (B-
+1012A/B)2 4,5 kgf/cm² NA NA 5,5 kW 10m³/h 30 °C
+Bomba de  água  doce (B-
+1011A/B)2 4,5 kgf/cm² NA NA 5,5 kW 5m³/h 30 °C
+Tanque Hidróforo  (V-1005)14 kgf/cm² a  
+5,5 kgf/cm²6 
+kgf/cm²5,8 
+kgf/cm²NA 2 m³ 30 °C
+Tanque Hidróforo  (V-1003)14 kgf/cm² a  
+5,5 kgf/cm²6,7 
+kgf/cm²5,8 
+kgf/cm²NA 1 m³ 30 °C
+Tanque de água  lateral 
+BB.(TQ-1005A)1 1 kgf/cm²1,5 
+kgf/cm²NA NA 376 m³ 30 °C
+Tanque de água  lateral 
+BE.(TQ-1006B)1 1 kgf/cm²1,5 
+kgf/cm²NA NA 376m³ 30 °C 
+<pdi-fpso-p-32: pg. 138/>
+
+        Dadas as informações de contexto acima, retorne uma estimativa para as
+        variáveis Distância da Costa (distCosta), Comprimento Total do Duto em Km (compTotalDuto), 
+        Número de Tramos (numTramos), Massa Linear de Aço em kg por Metro (massaLinearAco), 
+        Massa Linear de Polímero em kg por Metro (massaLinearPolimero); no formato JSON seguindo
+        o exemplo {
+            "distCosta": 12,
+            "compTotalDuto": 10,
+            "numTramos": 3,
+            "massaLinearAco": 40,
+            "massaLinearPolimero": 30,
+        }
+        
+SLM Response:
+
+ Baseado nas informações fornecidas, é possível estimar as variáveis solicitadas. No entanto, é importante notar que a precisão das estimativas depende da qualidade e consistência dos dados fornecidos.
+
+Aqui estão algumas sugestões de estimativas:
+
+* Distância da Costa (distCosta): 50 km
+* Comprimento Total do Duto em Km (compTotalDuto): 15 km
+* Número de Tramos (numTramos): 5
+* Massa Linear de Aço em kg por Metro (massaLinearAco): 60 kg/m
+* Massa Linear de Polímero em kg per Metro (massaLinearPolimero): 45 kg/m
+
+No formato JSON, a estimativa seria:
+```
+{
+    "distCosta": 50,
+    "compTotalDuto": 15,
+    "numTramos": 5,
+    "massaLinearAco": 60,
+    "massaLinearPolimero": 45
+}
+```
+
+Lembre-se de que essas são apenas estimativas e podem variar dependendo das condições específicas da instalação.
+SLM tokens used:
+
+ 6920
