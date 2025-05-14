@@ -1,0 +1,15 @@
+{
+    "models": [
+        "deepseek-r1:8b",
+        "llama3",
+        "qwen3:14b"
+    ],
+    "caseStudies": [
+        {
+            "name": "case-study-10",
+            "files": [
+                "ec10-flexiveis-final-v8"
+            ]
+        }
+    ]
+}
