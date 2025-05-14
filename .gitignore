@@ -2,4 +2,4 @@
 plain-pages/
 *.env
 rag/slm_extractor/logs/*
-rag/results
+slm/results

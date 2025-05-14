@@ -1,15 +1,14 @@
 {
     "models": [
-        "deepseek-r1:8b",
-        "llama3",
-        "qwen3:14b"
+        "deepseek-r1:8b"
     ],
     "caseStudies": [
         {
             "name": "case-study-10",
             "files": [
                 "ec10-flexiveis-final-v8"
-            ]
+            ],
+            "ragPrompt": "A distância da costa medida em kilometros"
         }
     ]
 }
