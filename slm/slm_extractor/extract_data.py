@@ -37,7 +37,7 @@ with engine.connect() as conn:
             store = EmbeddingStore(conn)
             page_reader = PageReader(PAGES_PATH)
             rag = Rag(store, page_reader, model)
-            prompter = PromptBuilder("pdi-fpso-p-32", rag, True)
+            prompter = PromptBuilder(case["files"], rag, True)
 
             # Prompt model
             rag_prompt = case["ragPrompt"]
@@ -57,4 +57,4 @@ with engine.connect() as conn:
             result = f"SLM Response:\n\n{response.message.content}\n\nSLM tokens used: {response.prompt_eval_count}"
             print(result)
 
-            save_result(case["name"], model, rag_prompt, msg, result)
+            save_result(case["name"], model, case, msg, result)

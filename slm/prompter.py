@@ -1,9 +1,10 @@
+from typing import List
 from rag import Rag
 
 
 class PromptBuilder:
-    def __init__(self, context_file: str, rag: Rag, debug_mode: bool = False):
-        self.base_file = context_file
+    def __init__(self, context_files: List[str], rag: Rag, debug_mode: bool = False):
+        self.context_files = context_files
         self.rag = rag
         self.debug = debug_mode
 
@@ -12,7 +13,7 @@ class PromptBuilder:
         if self.debug:
             print("RAG Prompt:\n\n", prompt)
 
-        ctx = self.rag.get_context_by_prompt(prompt, [self.base_file], 30)
+        ctx = self.rag.get_context_by_prompt(prompt, self.context_files, 30)
         ctx_txt = ""
         for page in ctx:
             tag = f"{page.source_document}: pg. {page.page}"
@@ -26,8 +27,8 @@ class PromptBuilder:
         Dadas as informações de contexto acima, retorne uma estimativa para as
         variáveis Distância da Costa (distCosta), Comprimento Total do Duto em Km (compTotalDuto), 
         Número de Tramos (numTramos), Massa Linear de Aço em kg por Metro (massaLinearAco), 
-        Massa Linear de Polímero em kg por Metro (massaLinearPolimero); no formato JSON seguindo
-        o exemplo {
+        Massa Linear de Polímero em kg por Metro (massaLinearPolimero) para os equipamentos contemplados no grupo G11I no formato JSON seguindo
+        o exemplo: {
             "distCosta": 12,
             "compTotalDuto": 10,
             "numTramos": 3,
