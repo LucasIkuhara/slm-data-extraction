@@ -14,7 +14,7 @@ from slm_extractor.save_results import save_result
 conn_str = environ.get("DB_CONN_STRING")
 PAGES_PATH = environ.get("PAGES_PATH")
 
-with open("extraction_options.json", "r") as f:
+with open("slm_extractor/extraction_options.json", "r") as f:
     cfg = loads(f.read())
     print("Starting with the following config:", cfg)
 
