@@ -6,10 +6,10 @@ authors = ["Lucas Ikuhara <lri2911@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "~3.12"
 ipykernel = "^6.29.5"
-pypdf2 = "^3.0.1"
 requests = "^2.32.3"
+docling = "^2.34.0"
 
 
 [build-system]
