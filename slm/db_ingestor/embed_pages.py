@@ -9,7 +9,7 @@ from ollama import ResponseError
 
 conn_str = environ.get("DB_CONN_STRING")
 model = environ.get("EMBEDDING_MODEL")
-BASE_PATH = environ.get("BASE_PATH")
+BASE_PATH = environ.get("PAGES_PATH")
 
 if not all([conn_str, model, BASE_PATH]):
     raise Exception(
