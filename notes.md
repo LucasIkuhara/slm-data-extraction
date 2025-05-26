@@ -17,3 +17,5 @@ To initialize hcp cli, run:
 ```sh
 hcp profile init --vault-secrets
 ```
+
+backup dos embeddings : RAW_TEXT_EMBEDDING
