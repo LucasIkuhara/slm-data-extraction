@@ -15,3 +15,5 @@ RUN /root/.local/bin/poetry install
 RUN /root/.local/bin/poetry run docling-tools models download
 
 COPY . .
+
+CMD [ "/root/.local/bin/poetry", "run", "python", "parse_pdfs.py" ]

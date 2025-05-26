@@ -3,3 +3,4 @@ plain-pages/
 *.env
 rag/slm_extractor/logs/*
 slm/results
+pdi-parser/poetry.lock
