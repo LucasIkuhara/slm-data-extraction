@@ -30,8 +30,12 @@ with engine.connect() as conn:
 
     # Iterate through case studies and models
     for case in cfg["caseStudies"]:
-        for model in cfg["models"]:
 
+        # Skip disabled cases
+        if not case["enabled"]:
+            continue
+
+        for model in cfg["models"]:
 
             # Initialize components
             store = EmbeddingStore(conn)

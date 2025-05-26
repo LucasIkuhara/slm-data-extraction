@@ -1,2 +1,2 @@
 #!/bin/sh
-poetry run python -m slm_extractor.extract_data
+hcp vs run -- poetry run python -m slm_extractor.extract_data

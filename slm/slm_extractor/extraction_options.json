@@ -7,6 +7,7 @@
     "caseStudies": [
         {
             "name": "case-study-10",
+            "enabled": false,
             "files": [
                 "ec10-flexiveis-final-v8"
             ],
