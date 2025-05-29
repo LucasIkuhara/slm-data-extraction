@@ -12,6 +12,14 @@
                 "ec10-flexiveis-final-v8"
             ],
             "ragPrompt": "A distância da costa representa a média da distância dos equipamentos em kilometros.\nComprimento Total do Duto em Km, Número de Tramos, Massa Linear de Aço em kg por Metro e Massa Linear de Polímero em kg por Metro são informações distintas de um grupo de equipamentos."
+        },
+        {
+            "name": "case-study-10-pdi-only",
+            "enabled": true,
+            "files": [
+                "pdi-fpso-cudade-de-santos"
+            ],
+            "ragPrompt": "A distância da costa representa a média da distância dos equipamentos em kilometros.\nComprimento Total do Duto em Km, Número de Tramos, Massa Linear de Aço em kg por Metro e Massa Linear de Polímero em kg por Metro são informações distintas de um grupo de equipamentos."
         }
     ]
 }

@@ -27,7 +27,7 @@ class PromptBuilder:
         Dadas as informações de contexto acima, retorne uma estimativa para as
         variáveis Distância da Costa (distCosta), Comprimento Total do Duto em Km (compTotalDuto), 
         Número de Tramos (numTramos), Massa Linear de Aço em kg por Metro (massaLinearAco), 
-        Massa Linear de Polímero em kg por Metro (massaLinearPolimero) para os equipamentos contemplados no grupo G11I no formato JSON seguindo
+        Massa Linear de Polímero em kg por Metro (massaLinearPolimero) para os equipamentos da FPSO Cidade de Santos no formato JSON seguindo
         o exemplo: {
             "distCosta": 12,
             "compTotalDuto": 10,
