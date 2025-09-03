@@ -36,16 +36,15 @@ with engine.connect() as conn:
             continue
 
         for model in cfg["models"]:
-
             # Initialize components
             store = EmbeddingStore(conn)
             page_reader = PageReader(PAGES_PATH)
             rag = Rag(store, page_reader, model)
-            prompter = PromptBuilder(case["files"], rag, True)
+            prompter = PromptBuilder(case["files"], rag)
 
             # Prompt model
             rag_prompt = case["ragPrompt"]
-            msg = prompter.make_prompt(rag_prompt)
+            msg = prompter.make_prompt(rag_prompt, 45)
             response: ChatResponse = chat(
                 model=model,
                 messages=[
@@ -54,11 +53,10 @@ with engine.connect() as conn:
                         "content": msg,
                     }
                 ],
-                options={"num_ctx": 4096 * 2},
+                options={"num_ctx": 45_000},
             )
 
             # Format and save results
             result = f"SLM Response:\n\n{response.message.content}\n\nSLM tokens used: {response.prompt_eval_count}"
             print(result)
-
-            save_result(case["name"], model, case, msg, result)
+            save_result(case["name"], model + "-45", case, msg, result)

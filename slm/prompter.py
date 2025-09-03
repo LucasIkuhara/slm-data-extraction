@@ -8,12 +8,16 @@ class PromptBuilder:
         self.rag = rag
         self.debug = debug_mode
 
-    def load_context(self, prompt: str) -> str:
+    def load_context(self, prompt: str, page_count: int) -> str:
 
         if self.debug:
             print("RAG Prompt:\n\n", prompt)
 
-        ctx = self.rag.get_context_by_prompt(prompt, self.context_files, 30)
+        ctx = self.rag.get_context_by_prompt(prompt, self.context_files, page_count)
+
+        if len(ctx) == 0:
+            print(f"Warning! no RAG pages found.")
+
         ctx_txt = ""
         for page in ctx:
             tag = f"{page.source_document}: pg. {page.page}"
@@ -22,9 +26,9 @@ class PromptBuilder:
 
         return ctx_txt
 
-    def make_prompt(self, ctx_prompt: str) -> str:
+    def make_prompt(self, ctx_prompt: str, pages: int) -> str:
         template = """
-        Dadas as informações de contexto acima, retorne uma estimativa para as
+        Dadas as informações de contexto acima, se possível, extraia diretamente ou calcule as
         variáveis Distância da Costa (distCosta), Comprimento Total do Duto em Km (compTotalDuto), 
         Número de Tramos (numTramos), Massa Linear de Aço em kg por Metro (massaLinearAco), 
         Massa Linear de Polímero em kg por Metro (massaLinearPolimero) para os equipamentos da FPSO Cidade de Santos no formato JSON seguindo
@@ -35,9 +39,11 @@ class PromptBuilder:
             "massaLinearAco": 40,
             "massaLinearPolimero": 30,
         }
+
+        Caso algum dos valores não esteja disponível ou não possa ser calculado com as informações presentes, preencha-as com null.
         """
 
-        prompt = self.load_context(ctx_prompt) + template
+        prompt = self.load_context(ctx_prompt, pages) + template
         if self.debug:
             print("Final Prompt:\n\n", prompt)
 
