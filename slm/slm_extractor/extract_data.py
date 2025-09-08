@@ -59,4 +59,10 @@ with engine.connect() as conn:
             # Format and save results
             result = f"SLM Response:\n\n{response.message.content}\n\nSLM tokens used: {response.prompt_eval_count}"
             print(result)
-            save_result(case["name"], model + "-45", case, msg, result)
+
+            case_name = case["name"]
+            if label := environ.get("CASE_LABEL"):
+                case_name = f"{label}-{case_name}"
+            print("Saving case as: ", case_name)
+
+            save_result(case_name, model + "-45", case, msg, result)
