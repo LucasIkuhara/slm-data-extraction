@@ -29,17 +29,32 @@ class PromptBuilder:
     def make_prompt(self, ctx_prompt: str, pages: int) -> str:
         template = """
         Dadas as informações de contexto acima, se possível, extraia diretamente ou calcule as
-        variáveis Distância da Costa (distCosta), Comprimento Total do Duto em Km (compTotalDuto), 
-        Número de Tramos (numTramos), Massa Linear de Aço em kg por Metro (massaLinearAco), 
-        Massa Linear de Polímero em kg por Metro (massaLinearPolimero) para os equipamentos da FPSO Cidade de Santos no formato JSON seguindo
-        o exemplo: {
-            "distCosta": 12,
-            "compTotalDuto": 10,
-            "numTramos": 3,
-            "massaLinearAco": 40,
-            "massaLinearPolimero": 30,
-        }
+        variáveis: 
+        Distância da Costa
+        Comprimento Total do Duto em Km
+        Número de Tramos
+        Massa Linear de Aço em kg por Metro
+        Massa Linear de Polímero em kg por Metro
+        Massa Linear de Cobre em kg por Metro
+        Massa Linear de Arama em kg por Metro
+        Lâmina D'água em mt
+        Total de Comprimento a ser Removido em KM
+        Peso Total de Aço Removido em Ton
+        Peso Total de Polímero Removido em Ton
+        Peso Total de Cobre Removido em Ton
+        Número de Desconexões
+        Número de Recuperação de Extremidades
+        Número de Cruzamentos por Baixo
+        Número de Cortes
+        Número de Navios
+        Número de Viagens do Navio
+        Número de Tripulantes
+        Número de Dias de Uso dos Navios
+        Peso Total de Aço em Ton
+        Peso Total de Polimero em Ton
+        Peso Total de Cobre em Ton
 
+        para os equipamentos da FPSO Cidade de Santos no formato JSON 
         Caso algum dos valores não esteja disponível ou não possa ser calculado com as informações presentes, preencha-as com null.
         """
 
