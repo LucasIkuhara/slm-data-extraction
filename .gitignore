@@ -4,3 +4,5 @@ plain-pages/
 rag/slm_extractor/logs/*
 slm/results
 pdi-parser/poetry.lock
+slm/ex
+slm/vec_store.db
