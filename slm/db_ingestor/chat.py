@@ -5,21 +5,19 @@ from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_core.vectorstores import InMemoryVectorStore
 
 
-embeddings = OllamaEmbeddings(model="llama3")
-llm = ChatOllama(model="llama3")
+embeddings = OllamaEmbeddings(model="llama3.2")
+llm = ChatOllama(model="llama3.2")
 
-vector_store = InMemoryVectorStore(embeddings)
-vector_store.load("vec_store.db", embeddings)
+vector_store = InMemoryVectorStore.load("vec_store.db", embeddings)
 
-retriever = vector_store.as_retriever()
+retriever = vector_store.as_retriever(k=20)
+print(vector_store)
 prompt_template = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            """You are an assistant for answering questions.
-    Use the provided context to respond.If the answer 
-    isn't clear, acknowledge that you don't know. 
-    Limit your response to three concise sentences.
+            """Você é um assistente que deverá responder perguntas baseadas no contexto.
+            Caso não saiba a resposta, admita não sabê-la.
     {context}
     
     """,

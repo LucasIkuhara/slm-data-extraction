@@ -1,28 +1,22 @@
 import os
 from langchain_ollama import OllamaEmbeddings, ChatOllama
-from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
+from langchain_postgres import PGEngine, PGVectorStore
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain.docstore.document import Document
-
 from page_reader import PageReader
 
 
+MODEL_TAG = "llama3.2"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-embeddings = OllamaEmbeddings(model="llama3")
-llm = ChatOllama(model="llama3")
+embedding = OllamaEmbeddings(model=MODEL_TAG)
+llm = ChatOllama(model=MODEL_TAG)
 
 # conn_str = os.getenv("DB_CONN_STRING")
-# model_list = os.getenv("EMBEDDING_MODELS").split(";")
+# pg_engine = PGEngine.from_connection_string(url=conn_str)
+
+# Read text files
 BASE_PATH = os.getenv("PAGES_PATH")
-
-# if not all([conn_str, model_list, BASE_PATH]):
-#     raise Exception(
-#         "Missing environment variables. Please set DB_CONN_STRING, EMBEDDING_MODELS, BASE_PATH and try again."
-#     )
-
-
 text_reader = PageReader(BASE_PATH)
 files = text_reader.get_files()
 docs = [
@@ -30,10 +24,22 @@ docs = [
     for f in files
 ]
 
+
+# normalized_model_name = MODEL_TAG.replace(":", "_")
+# table_name = f"lc_emb_{normalized_model_name}"
+
+# pg_engine.init_vectorstore_table(
+#     table_name=table_name, vector_size=4096, overwrite_existing=True
+# )
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 chunks = text_splitter.split_documents(docs)
+# store = PGVectorStore.create_sync(
+#     engine=pg_engine,
+#     table_name=table_name,
+#     embedding_service=embedding,
+# )
+# store.add_documents(chunks)
 
-vector_store = InMemoryVectorStore(embeddings)
-vector_store.add_documents(chunks)
+vector_store = InMemoryVectorStore.from_documents(chunks, embedding)
 vector_store.dump("vec_store.db")
 print("Successfully loaded Db: vec_store.db")
