@@ -8,7 +8,6 @@ from page_reader import PageReader
 
 
 MODEL_TAG = "llama3.2"
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 embedding = OllamaEmbeddings(model=MODEL_TAG)
 llm = ChatOllama(model=MODEL_TAG)
 
@@ -16,23 +15,16 @@ llm = ChatOllama(model=MODEL_TAG)
 # pg_engine = PGEngine.from_connection_string(url=conn_str)
 
 # Read text files
-BASE_PATH = os.getenv("PAGES_PATH")
+BASE_PATH: str = os.getenv("PAGES_PATH")
 text_reader = PageReader(BASE_PATH)
 files = text_reader.get_files()
-docs = [
-    Document(f.raw_text, metadata={"source": f.source_document, "page": f.page})
-    for f in files
-]
 
-
-# normalized_model_name = MODEL_TAG.replace(":", "_")
-# table_name = f"lc_emb_{normalized_model_name}"
-
-# pg_engine.init_vectorstore_table(
-#     table_name=table_name, vector_size=4096, overwrite_existing=True
-# )
+# Join and chunk text
+txt = "".join([t.raw_text for t in files])
+doc = Document(txt, metadata={"source": files[0].source_document})
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-chunks = text_splitter.split_documents(docs)
+chunks = text_splitter.split_documents([doc])
+
 # store = PGVectorStore.create_sync(
 #     engine=pg_engine,
 #     table_name=table_name,
