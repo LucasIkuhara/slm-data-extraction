@@ -6,12 +6,13 @@ from langchain_core.vectorstores import InMemoryVectorStore
 
 
 embeddings = OllamaEmbeddings(model="llama3.2")
-llm = ChatOllama(model="llama3.2")
+llm = ChatOllama(model="llama3.2", num_ctx=131072)
 
-vector_store = InMemoryVectorStore.load("vec_store.db", embeddings)
+vector_store: InMemoryVectorStore = InMemoryVectorStore.load("vec_store.db", embeddings)
+db_size = len(vector_store.store.items())
+print(f"Total db size: {db_size} items.")
 
-retriever = vector_store.as_retriever(k=20)
-print(vector_store)
+retriever = vector_store.as_retriever(k=db_size)
 prompt_template = ChatPromptTemplate.from_messages(
     [
         (
