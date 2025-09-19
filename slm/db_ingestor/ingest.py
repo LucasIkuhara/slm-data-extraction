@@ -1,5 +1,6 @@
 import os
 from langchain_ollama import OllamaEmbeddings, ChatOllama
+from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_postgres import PGEngine, PGVectorStore
 from langchain_core.vectorstores import InMemoryVectorStore
@@ -7,9 +8,14 @@ from langchain.docstore.document import Document
 from page_reader import PageReader
 
 
-MODEL_TAG = "llama3.2"
-embedding = OllamaEmbeddings(model=MODEL_TAG)
-llm = ChatOllama(model=MODEL_TAG)
+# ! Ollama embedding
+# MODEL_TAG = "llama3.2"
+# embedding = OllamaEmbeddings(model=MODEL_TAG)
+# llm = ChatOllama(model=MODEL_TAG)
+
+# ! Open AI Embedding
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+embedding = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
 
 # conn_str = os.getenv("DB_CONN_STRING")
 # pg_engine = PGEngine.from_connection_string(url=conn_str)
@@ -33,5 +39,5 @@ chunks = text_splitter.split_documents([doc])
 # store.add_documents(chunks)
 
 vector_store = InMemoryVectorStore.from_documents(chunks, embedding)
-vector_store.dump("vec_store.db")
+vector_store.dump("vec-stores/gpt5_nano_vec_store.db")
 print("Successfully loaded Db: vec_store.db")
