@@ -56,7 +56,6 @@ for case in cfg["caseStudies"]:
     qa_chain = create_stuff_documents_chain(llm, prompt_template)
     rag_chain = create_retrieval_chain(retriever, qa_chain)
 
-    print("Chat with Document")
     msg = """
     Dadas as informações de contexto acima, se possível, extraia diretamente ou calcule as
     variáveis: 
@@ -92,7 +91,7 @@ for case in cfg["caseStudies"]:
     print()
 
     # Format and save results
-    result = f"SLM Response:\n\n{response["answer"]}\n\nSLM tokens used: {response.prompt_eval_count}"
+    result = f"SLM Response:\n\n{response["answer"]}"
     print(result)
 
     case_name = case["name"]
