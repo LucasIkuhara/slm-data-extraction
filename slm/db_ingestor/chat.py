@@ -1,14 +1,26 @@
+import os
 from langchain.prompts import ChatPromptTemplate
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_core.vectorstores import InMemoryVectorStore
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
 
-embeddings = OllamaEmbeddings(model="llama3.2")
-llm = ChatOllama(model="llama3.2", num_ctx=131072)
+# ! Ollama
+# embeddings = OllamaEmbeddings(model="llama3.2")
+# llm = ChatOllama(model="llama3.2", num_ctx=131072)
 
-vector_store: InMemoryVectorStore = InMemoryVectorStore.load("vec_store.db", embeddings)
+# ! OpenAI
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API_KEY)
+llm = ChatOpenAI(model="gpt-5-mini", api_key=OPENAI_API_KEY)
+
+vector_store: InMemoryVectorStore = InMemoryVectorStore.load(
+    "vec-stores/oai_3_large_vec_store.db", embeddings
+)
+
+
 db_size = len(vector_store.store.items())
 print(f"Total db size: {db_size} items.")
 

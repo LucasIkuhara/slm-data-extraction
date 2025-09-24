@@ -15,7 +15,7 @@ from page_reader import PageReader
 
 # ! Open AI Embedding
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-embedding = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+embedding = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API_KEY)
 
 # conn_str = os.getenv("DB_CONN_STRING")
 # pg_engine = PGEngine.from_connection_string(url=conn_str)
@@ -39,5 +39,5 @@ chunks = text_splitter.split_documents([doc])
 # store.add_documents(chunks)
 
 vector_store = InMemoryVectorStore.from_documents(chunks, embedding)
-vector_store.dump("vec-stores/gpt5_nano_vec_store.db")
+vector_store.dump("vec-stores/oai_3_large_vec_store.db")
 print("Successfully loaded Db: vec_store.db")
