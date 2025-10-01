@@ -1,0 +1,111 @@
+# Perguntas
+
+ Busque no "Anexo 7 - Inventário de Dutos e Equipamentos Submarinos do FPCST a K' - Massa de Aço (t) do Gasoduto de Alta - GA_FPCST/PLEM-URG-001(1)
+
+ Qual a lâmina d'água mínima, média e máxima mencionada no texto em metros do Campo de Uruguá e Tambaú
+
+Qual o diametro mencionado no texto dos dutos (ou linha) flexíveis do Campo de Uruguá e seus códigos
+
+# Logs
+
+backup dos embeddings : RAW_TEXT_EMBEDDING
+
+Total db size: 6114 items.                                                                                                                            
+Chat with Document                                                                                                                                    
+Your Question:                                                                                                                                        
+ > Your Question:
+ > Qual a lâmina d'água mínima, média e máxima mencionada no texto em metros do Campo de Uruguá e Tambaú mencionada no Capítulo 1. Referência         
+Não consta no trecho fornecido (incluindo “Capítulo 1. Referência”) a lâmina d’água mínima, média e máxima para Uruguá e Tambaú.
+
+- Campo de Uruguá: o texto apenas menciona “lâmina d’água em torno de 1300 metros”; não há valores mínimo, médio e máximo discriminados.
+- Campo de Tambaú: não há menção de lâmina d’água.
+
+Se você disponibilizar o conteúdo do Capítulo 1, posso extrair os valores solicitados.
+Your Question:
+ > Qual o diametro mencionado no texto das duto (ou linha) flexíveis do Campo de Uruguá?
+- Linha de produção (óleo e gás): 6" (diâmetro interno)
+- Linha de serviço – poços de gás: 2,5" (diâmetro interno)
+- Linha de serviço – poços de óleo: 4" (diâmetro interno)
+
+Obs.: para umbilicais não se aplica diâmetro nominal.
+Your Question:
+ > Qual o diametro mencionado no texto dos dutos (ou linha) flexíveis do Campo de Uruguá e seus códigos?
+Resumo dos dutos (linhas) flexíveis citados para o Campo de Uruguá:
+
+- Poços Produtores de Gás (7-URG-014HP-RJS, 7-URG-016HPA-RJS, 7-URG-17DA-RJS)
+  - Linha de produção de gás (PG): diâmetro interno 6"
+  - Linha de serviço: diâmetro interno 2,5"
+
+- Poços Produtores de Óleo (7-URG-06HP-RJS, 7-URG-08HPA-RJS, 7-URG-10HP-RJS, 7-URG-12HP-RJS, 7-URG-19D-RJS)
+  - Linha de produção (PO): diâmetro interno 6"
+  - Linha de serviço: diâmetro interno 4"
+
+Observação: Para os umbilicais eletro-hidráulicos (UEH) não se aplica diâmetro nominal; os diâmetros externos variam de 109 mm a 145 mm.
+
+Your Question:                                                                                                                                        
+ > Qual a profundidade de lâmina d'água do duto rígido mencionado no texto?                                                                           
+Não há indicação da profundidade de lâmina d'água no trecho que você forneceu.                                                                        
+                                                                                                                                                      
+Conforme o próprio texto, os dados detalhados dos trechos rígidos e demais informações estão no Anexo 7 — Inventário de Dutos e Equipamentos Submarino
+s e no PDI da P-47 (ver também a Tabela 3.3.II e a Figura 5.XIX). Se você quiser, envie o Anexo 7, a Tabela 3.3.II ou o trecho do PDI da P-47 que cont
+enha essa informação e eu procuro a profundidade para você.                                                                                           
+Your Question:                                                                                                                                        
+ > Qual a lâmina d'água mencionada no texto                                                                                                           
+A lâmina d'água (LDA) mencionada no texto é: a distância vertical de um nível de referência, especificado em relação a um "DATUM" da maré astronômica,
+ até o fundo do mar.                                                                                                                                  
+Your Question:                                                                                                                                        
+ > Qual a lâmina d'água mencionada no texto em metros do Campo de Uruguá e Tambaú                                                                     
+A lâmina d'água mencionada no texto é de 1.300 metros.                                                                                                
+Your Question:   
+ > Qual a lâmina d'água mínima, média e máxima mencionada no texto em metros do Campo de Uruguá e Tambaú                                              
+Considerando as lâminas d'água listadas no texto (poços e entradas FPCST):                                                                            
+
+- Campo de Uruguá                                                                                                                                     
+  - Mínima: 1.294 m                                                        
+  - Média: 1.331,4 m  
+  - Máxima: 1.376 m                                                                                                                                   
+                                     
+- Campo de Tambaú                                                                                                                                     
+  - Mínima: 1.055 m                                                        
+  - Média: 1.084,0 m                                                       
+  - Máxima: 1.105 m                                                        
+
+Observação: a unidade também é mencionada como estando a 1.300 m de lâmina d'água. Quer que eu mostre os cálculos?
+Your Question:
+ > Qual a lâmina d'água mínima, média e máxima mencionada no texto em metros do Campo de Uruguá e Tambaú mencionada no Capítulo 1. Referência         
+No trecho fornecido não há valores mínimos ou máximos. O texto apenas indica lâmina d'água em torno de 1300 m (também citado que a unidade está a 1300
+ m). Portanto:                       
+                                                                                                                                                      
+- Mínima: não informada no texto.                                          
+- Média: aproximadamente 1300 m.                                           
+- Máxima: não informada no texto.
+
+ > Your Question:
+ > Qual a lâmina d'água mínima, média e máxima mencionada no texto em metros do Campo de Uruguá e Tambaú mencionada no Capítulo 1. Referência         
+Não consta no trecho fornecido (incluindo “Capítulo 1. Referência”) a lâmina d’água mínima, média e máxima para Uruguá e Tambaú.
+
+- Campo de Uruguá: o texto apenas menciona “lâmina d’água em torno de 1300 metros”; não há valores mínimo, médio e máximo discriminados.
+- Campo de Tambaú: não há menção de lâmina d’água.
+
+Se você disponibilizar o conteúdo do Capítulo 1, posso extrair os valores solicitados.
+Your Question:
+ > Qual o diametro mencionado no texto das duto (ou linha) flexíveis do Campo de Uruguá?
+- Linha de produção (óleo e gás): 6" (diâmetro interno)
+- Linha de serviço – poços de gás: 2,5" (diâmetro interno)
+- Linha de serviço – poços de óleo: 4" (diâmetro interno)
+
+Obs.: para umbilicais não se aplica diâmetro nominal.
+Your Question:
+ > Qual o diametro mencionado no texto dos dutos (ou linha) flexíveis do Campo de Uruguá e seus códigos?
+Resumo dos dutos (linhas) flexíveis citados para o Campo de Uruguá:
+
+- Poços Produtores de Gás (7-URG-014HP-RJS, 7-URG-016HPA-RJS, 7-URG-17DA-RJS)
+  - Linha de produção de gás (PG): diâmetro interno 6"
+  - Linha de serviço: diâmetro interno 2,5"
+
+- Poços Produtores de Óleo (7-URG-06HP-RJS, 7-URG-08HPA-RJS, 7-URG-10HP-RJS, 7-URG-12HP-RJS, 7-URG-19D-RJS)
+  - Linha de produção (PO): diâmetro interno 6"
+  - Linha de serviço: diâmetro interno 4"
+
+Observação: Para os umbilicais eletro-hidráulicos (UEH) não se aplica diâmetro nominal; os diâmetros externos variam de 109 mm a 145 mm.
+Your Question:
