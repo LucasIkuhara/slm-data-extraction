@@ -14,7 +14,7 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 # ! OpenAI
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API_KEY)
-llm = ChatOpenAI(model="gpt-5-mini", api_key=OPENAI_API_KEY)
+llm = ChatOpenAI(model="gpt-5", api_key=OPENAI_API_KEY)
 
 vector_store: InMemoryVectorStore = InMemoryVectorStore.load(
     "vec-stores/oai_3_large_vec_store.db", embeddings
