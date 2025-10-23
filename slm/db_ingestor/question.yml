@@ -1,0 +1,57 @@
+questions:
+  - prompt: Qual a profundidade de lâmina d'água da tubulação rígida instalados no bacia?
+    equipment: tub_rig
+
+  - prompt: Qual o Peso Linear (kg/m) da tubulação rígida instalados no bacia? 
+    equipment: tub_rig
+
+  - prompt: Qual a extensão total da tubulação rígida instalada na bacia?
+    equipment: tub_rig
+    
+  - prompt: Qual a condição de limpeza da tubulação rígida instalada na bacia?
+    equipment: tub_rig
+
+  - prompt: Qual a extensão soterrada da tubulação rígida instalada na bacia?
+    equipment: tub_rig
+
+  - prompt: Qual a condição de integridade estrutural da tubulação rígida instalada na bacia? 
+    equipment: tub_rig
+
+  - prompt: Qual a quantidade de cruzamentos por cima da tubulação rígida instalada na bacia?
+    equipment: tub_rig
+
+  - prompt: Qual a quantidade de cruzamentos por baixo da tubulação rígida instalada na bacia?
+    equipment: tub_rig
+
+  - prompt: Qual a profundidade de lâmina d'água da tubulação flexível instalada no bacia?
+    equipment: tub_flex
+
+  - prompt: Qual o diâmetro da tubulação flexível instalada na bacia? 
+    equipment: tub_flex
+
+  - prompt: Qual a extensão total da tubulação flexível instalada na bacia?
+    equipment: tub_flex
+
+  - prompt: Qual a condição de limpeza da tubulação flexível instalada na bacia?
+    equipment: tub_flex
+
+  - prompt: Qual a extensão de duto soterrada da tubulação flexível instalada na bacia? 
+    equipment: tub_flex
+
+  - prompt: Qual a condição de integridade estrutural da tubulação flexível instalada na bacia? 
+    equipment: tub_flex
+
+  - prompt: Qual a quantidade de cruzamentos por cima da tubulação flexível instalada na bacia?
+    equipment: tub_flex
+
+  - prompt: Qual a quantidade de cruzamentos por baixo da tubulação flexível instalada na bacia?
+    equipment: tub_flex
+
+  - prompt: Qual a profundidade de lâmina d'água dos manifolds instalados no bacia? 
+    equipment: manifold
+
+  - prompt: Quais as dimensões dos manifolds instalados no bacia? 
+    equipment: manifold
+
+  - prompt: Qual o peso do manifold instalado na bacia?
+    equipment: manifold
