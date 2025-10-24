@@ -16,6 +16,7 @@ langchain-core = "^0.3.76"
 langchain = "^0.3.27"
 langchain-ollama = "^0.3.8"
 langchain-postgres = "^0.0.15"
+pyyaml = "^6.0.3"
 
 
 [build-system]

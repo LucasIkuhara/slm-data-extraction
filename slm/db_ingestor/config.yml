@@ -55,3 +55,8 @@ questions:
 
   - prompt: Qual o peso do manifold instalado na bacia?
     equipment: manifold
+
+system-prompt: >
+  Você é um assistente que deverá responder perguntas baseadas no contexto.
+  Caso não saiba a resposta, admita não sabê-la. 
+  Inclua o local de onde foi retirada a informação na resposta.
