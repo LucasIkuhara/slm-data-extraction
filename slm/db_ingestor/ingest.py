@@ -6,6 +6,7 @@ from langchain_postgres import PGEngine, PGVectorStore
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain.docstore.document import Document
 from page_reader import PageReader
+from db_ingestor.config import cfg
 
 
 # ! Ollama embedding
@@ -17,26 +18,22 @@ from page_reader import PageReader
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 embedding = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API_KEY)
 
-# conn_str = os.getenv("DB_CONN_STRING")
-# pg_engine = PGEngine.from_connection_string(url=conn_str)
+chunks = []
 
-# Read text files
-BASE_PATH: str = os.getenv("PAGES_PATH")
-text_reader = PageReader(BASE_PATH)
-files = text_reader.get_files()
+for doc in cfg["documents"]:
 
-# Join and chunk text
-txt = "".join([t.raw_text for t in files])
-doc = Document(txt, metadata={"source": files[0].source_document})
-text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-chunks = text_splitter.split_documents([doc])
+    print("Loading: ", doc)
+    # Read text files
+    BASE_PATH: str = os.getenv("PAGES_PATH")
+    text_reader = PageReader(BASE_PATH)
+    files = text_reader.get_files([doc])
+    print(f"Found {len(files)} files.")
 
-# store = PGVectorStore.create_sync(
-#     engine=pg_engine,
-#     table_name=table_name,
-#     embedding_service=embedding,
-# )
-# store.add_documents(chunks)
+    # Join and chunk text
+    txt = "".join([t.raw_text for t in files])
+    doc = Document(txt, metadata={"source": doc})
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    chunks += text_splitter.split_documents([doc])
 
 vector_store = InMemoryVectorStore.from_documents(chunks, embedding)
 vector_store.dump("vec-stores/oai_3_large_vec_store.db")
