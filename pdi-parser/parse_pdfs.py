@@ -1,5 +1,7 @@
 # %%
 from utils import url_to_md
+from os import listdir
+
 
 # Get file names and urls
 with open("pdf_urls.txt", "r") as fd:
@@ -14,8 +16,12 @@ for url in file_urls:
 
 # %%
 OUTPUT_DIR = "../plain-pages"
+previously_extracted = listdir(OUTPUT_DIR)
 
 for name, url in names_and_urls:
+    if name in previously_extracted:
+        print(f"Skipping {name}, already extracted previously.")
+        continue
     url_to_md(url, f"{OUTPUT_DIR}/{name}")
 
 # %%
