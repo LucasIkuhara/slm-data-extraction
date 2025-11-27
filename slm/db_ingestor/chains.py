@@ -25,7 +25,7 @@ db_size = len(vector_store.store.items())
 print(f"Total db size: {db_size} items.")
 
 
-def make_rag_chain(sys_prompt: str, docs: list[str] = []) -> Runnable:
+def make_rag_chain(sys_prompt: str, docs: list[str] = [], llm=llm) -> Runnable:
     if docs:
 
         def filter_docs(x):
@@ -52,3 +52,14 @@ def make_rag_chain(sys_prompt: str, docs: list[str] = []) -> Runnable:
     qa_chain = create_stuff_documents_chain(llm, prompt_template)
     rag_chain = create_retrieval_chain(retriever, qa_chain)
     return rag_chain
+
+
+json_llm = ChatOpenAI(
+    model="gpt-5",
+    api_key=OPENAI_API_KEY,
+    model_kwargs=dict(response_format=dict(type="object_json")),
+)
+
+
+def make_json_rag_chain(sys_prompt: str, docs: list[str] = []) -> Runnable:
+    return make_rag_chain(sys_prompt, docs, json_llm)
