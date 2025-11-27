@@ -3,7 +3,7 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.runnables.base import Runnable
 import os
-
+from db_ingestor.config import cfg
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
@@ -17,7 +17,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API
 llm = ChatOpenAI(model="gpt-5", api_key=OPENAI_API_KEY)
 
 vector_store: InMemoryVectorStore = InMemoryVectorStore.load(
-    "vec-stores/oai_3_large_vec_store.db", embeddings
+    cfg["vec-store-path"], embeddings
 )
 
 
