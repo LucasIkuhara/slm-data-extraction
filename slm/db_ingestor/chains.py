@@ -59,7 +59,7 @@ def make_rag_chain(sys_prompt: str, docs: list[str] = [], llm=llm) -> Runnable:
 json_llm = ChatOpenAI(
     model="gpt-5",
     api_key=OPENAI_API_KEY,
-    model_kwargs=dict(response_format=dict(type="object_json")),
+    model_kwargs=dict(response_format=dict(type="json_object")),
 )
 
 

@@ -1,0 +1,19 @@
+from db_ingestor.chains import make_json_rag_chain
+from db_ingestor.config import cfg
+
+
+rag_chain = make_json_rag_chain(
+    cfg["system-prompt"], ["pdi-executivo-plataforma-biquara-01"]
+)
+
+
+question = """
+Extraia o nome da bacia e seus respectivos campos no seguinte formato:
+{
+    bacia: string,
+    campos: string[]
+}
+"""
+
+response = rag_chain.invoke({"input": question})
+print(response["answer"])
