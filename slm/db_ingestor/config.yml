@@ -63,10 +63,4 @@ system-prompt: >
 
 txt-docs-dir: "../plain-pages"
 vec-store-path: "vec-stores/oai_3_large_vec_store.db"
-# documents:
-#   - pdf-fpso-cidade-de-santos  # Cidade de Santos
-#   - pdi-executivo-plataforma-biquara-01  # Biquara
-#   - pdi-plataforma-pag-03  # Agulha
-#   - PDI_E_P_PAG_01  # Agulha
-#   - pdis-conceituais-marlim-voador  # Marlin
-#   - PDI_C_P_65
+vec-store-bkp-path: "vec-stores-bkp"
