@@ -6,7 +6,7 @@ https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/segura
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi_-conceitual-da-plataforma-aratum-part2.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-conceitual-manati.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-conceitual-fpso-spa2.pdf
-https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-conceitual-plataforma-fluminense.pdf
+# https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-conceitual-plataforma-fluminense.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/PDI_C_Cambacica.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-conceitual-crp.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-conceitual-cup.pdf
@@ -21,7 +21,7 @@ https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/segura
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-conceitual-parteii-petrobras-plataforma-p-47-viola.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-conceitual-spa-do-campo-de-atlanta-tarjado.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdipiranema.pdf
-https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-dutos-remanescentes-pampo-enchova.pdf
+# https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-dutos-remanescentes-pampo-enchova.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-executivo-fpso-cidade-santos2.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-fpso-p-35_tarjado-parte-1.pdf
 https://www.gov.br/anp/pt-br/assuntos/exploracao-e-producao-de-oleo-e-gas/seguranca-operacional/arq/ppdi/pdi-fpso-p-35_tarjado-parte-2.pdf
