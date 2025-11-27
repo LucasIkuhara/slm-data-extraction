@@ -7,6 +7,7 @@ from db_ingestor.config import cfg
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
+
 # ! Ollama
 # embeddings = OllamaEmbeddings(model="llama3.2")
 # llm = ChatOllama(model="llama3.2", num_ctx=131072)
@@ -15,15 +16,10 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API_KEY)
 llm = ChatOpenAI(model="gpt-5", api_key=OPENAI_API_KEY)
+from vec_store import vector_store
 
-try:
-    vector_store: InMemoryVectorStore = InMemoryVectorStore.load(
-        cfg["vec-store-path"], embeddings
-    )
-except FileNotFoundError:
-    vector_store = InMemoryVectorStore(embeddings)
 
-db_size = len(vector_store.store.items())
+db_size = 60_000
 print(f"Total db size: {db_size} items.")
 
 

@@ -27,9 +27,16 @@ questions:
 
 system-prompt: >
   Você é um assistente que deverá responder perguntas baseadas no contexto.
-  Caso não saiba a resposta, admita não sabê-la. 
+  Caso não saiba a resposta, admita não sabê-la. Caso a resposta seja verdadeiro ou falso, responda 1 para verdadeiro e 0 para falso.
+  Leve em consideração que equipamentos presentes em plataformas em um determinado campo são
+  contabilizados como pertencentes a este campo.
   Inclua o local de onde foi retirada a informação na resposta.
 
 txt-docs-dir: "../plain-pages"
-vec-store-path: "vec-stores/oai_3_large_vec_store.db"
-vec-store-bkp-path: "vec-stores-bkp"
+# vec-store-path: "vec-stores/oai_3_large_vec_store.db"
+vec-store-table: "oai_3_large_vec_store"
+# vec-store-path: "vec-stores-bkp/oai_3_large_vec_store_marlin.db"
+# vec-store-bkp-path: "vec-stores-bkp"
+
+# documents:
+#   - pdis-conceituais-marlim-voador  # Marlin
