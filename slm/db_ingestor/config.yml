@@ -1,60 +1,29 @@
 questions:
-  - prompt: Qual a profundidade de lâmina d'água da tubulação rígida instalados no bacia?
-    equipment: tub_rig
+  - prompt: Qual a Empresa contratada para trabalhar no descomissionamento no campo {campo}?
+    var: empresa
+  - prompt: Existe a presença de dutos flexíveis no campo {campo}?
+    var: duto_flex
+  - prompt: Existe a presença de dutos rígidos no campo {campo}?
+    var: duto_rig
+  - prompt: Existe a presença de Skids no campo {campo}?
+    var: skid
+  - prompt: Existe a presença de Manifold no campo {campo}?
+    var: manifold
+  - prompt: Existe a presença de cabos elétricos no campo {campo}?
+    var: cabo_elet
+  - prompt: Existe a presença de Skids no campo {campo}?
+    var: skid
+  - prompt: Qual a Distância da costa do campo {campo}?
+    var: distancia
+  - prompt: Qual a profundidade de Lâmina d'água do campo {campo}?
+    var: lamina
+  - prompt: Qual a quantidade de Skids no campo {campo}?
+    var: qtd_skid
+  - prompt: Qual a quantidade de Manifolds no campo {campo}?
+    var: qtd_manifold
 
-  - prompt: Qual o Peso Linear (kg/m) da tubulação rígida instalados no bacia? 
-    equipment: tub_rig
-
-  - prompt: Qual a extensão total da tubulação rígida instalada na bacia?
-    equipment: tub_rig
-    
-  - prompt: Qual a condição de limpeza da tubulação rígida instalada na bacia?
-    equipment: tub_rig
-
-  - prompt: Qual a extensão soterrada da tubulação rígida instalada na bacia?
-    equipment: tub_rig
-
-  - prompt: Qual a condição de integridade estrutural da tubulação rígida instalada na bacia? 
-    equipment: tub_rig
-
-  - prompt: Qual a quantidade de cruzamentos por cima da tubulação rígida instalada na bacia?
-    equipment: tub_rig
-
-  - prompt: Qual a quantidade de cruzamentos por baixo da tubulação rígida instalada na bacia?
-    equipment: tub_rig
-
-  - prompt: Qual a profundidade de lâmina d'água da tubulação flexível instalada no bacia?
-    equipment: tub_flex
-
-  - prompt: Qual o diâmetro da tubulação flexível instalada na bacia? 
-    equipment: tub_flex
-
-  - prompt: Qual a extensão total da tubulação flexível instalada na bacia?
-    equipment: tub_flex
-
-  - prompt: Qual a condição de limpeza da tubulação flexível instalada na bacia?
-    equipment: tub_flex
-
-  - prompt: Qual a extensão de duto soterrada da tubulação flexível instalada na bacia? 
-    equipment: tub_flex
-
-  - prompt: Qual a condição de integridade estrutural da tubulação flexível instalada na bacia? 
-    equipment: tub_flex
-
-  - prompt: Qual a quantidade de cruzamentos por cima da tubulação flexível instalada na bacia?
-    equipment: tub_flex
-
-  - prompt: Qual a quantidade de cruzamentos por baixo da tubulação flexível instalada na bacia?
-    equipment: tub_flex
-
-  - prompt: Qual a profundidade de lâmina d'água dos manifolds instalados no bacia? 
-    equipment: manifold
-
-  - prompt: Quais as dimensões dos manifolds instalados no bacia? 
-    equipment: manifold
-
-  - prompt: Qual o peso do manifold instalado na bacia?
-    equipment: manifold
+    # Equipamento (booleano)
+    # Está íntegro? (booleano)
 
 system-prompt: >
   Você é um assistente que deverá responder perguntas baseadas no contexto.
