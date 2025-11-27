@@ -26,7 +26,6 @@ print(
 )
 
 # Start embedding
-bkp_name = f'{cfg["vec-store-path"]}_{datetime.now().isoformat()}'
 chunks = []
 for doc in new_docs:
     print("Loading: ", doc)
@@ -42,9 +41,13 @@ for doc in new_docs:
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     chunks += text_splitter.split_documents([doc])
 
-print(f"Saving {len(chunks)} chunks...", end="\n\n")
+print(f"Embedding {len(chunks)} chunks...", end="\n\n")
 vector_store.add_documents(chunks)
 
+# File dumps
+print("Starting file dumps")
+fn = cfg["vec-store-path"].split("/")[-1]
+bkp_name = f'{cfg["vec-store-bkp-path"]}/{fn}_{datetime.now().isoformat()}'
 vector_store.dump(bkp_name)
 vector_store.dump(cfg["vec-store-path"])
 print("Successfully loaded Db:", cfg["vec-store-path"])
