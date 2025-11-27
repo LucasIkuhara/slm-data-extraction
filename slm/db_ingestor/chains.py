@@ -16,10 +16,12 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API_KEY)
 llm = ChatOpenAI(model="gpt-5", api_key=OPENAI_API_KEY)
 
-vector_store: InMemoryVectorStore = InMemoryVectorStore.load(
-    cfg["vec-store-path"], embeddings
-)
-
+try:
+    vector_store: InMemoryVectorStore = InMemoryVectorStore.load(
+        cfg["vec-store-path"], embeddings
+    )
+except FileNotFoundError:
+    vector_store = InMemoryVectorStore(embeddings)
 
 db_size = len(vector_store.store.items())
 print(f"Total db size: {db_size} items.")

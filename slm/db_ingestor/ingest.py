@@ -6,6 +6,7 @@ from langchain.docstore.document import Document
 from page_reader import PageReader
 from db_ingestor.chains import vector_store
 from db_ingestor.config import cfg
+from datetime import datetime
 
 
 # Collect all unique document tags
@@ -24,6 +25,9 @@ print(
     end="\n\n",
 )
 
+# Start embedding
+bkp_name = f'{cfg["vec-store-path"]}_{datetime.now().isoformat()}'
+chunks = []
 for doc in new_docs:
     print("Loading: ", doc)
 
@@ -36,10 +40,11 @@ for doc in new_docs:
     txt = "".join([t.raw_text for t in files])
     doc = Document(txt, metadata={"source": doc})
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-    chunks = text_splitter.split_documents([doc])
+    chunks += text_splitter.split_documents([doc])
 
-    print(f"Saving {len(chunks)} chunks.", end="\n\n")
-    vector_store.add_documents(chunks)
-    vector_store.dump(cfg["vec-store-path"])
+print(f"Saving {len(chunks)} chunks...", end="\n\n")
+vector_store.add_documents(chunks)
 
+vector_store.dump(bkp_name)
+vector_store.dump(cfg["vec-store-path"])
 print("Successfully loaded Db:", cfg["vec-store-path"])
