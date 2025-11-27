@@ -3,12 +3,12 @@ from db_ingestor.config import cfg
 
 
 rag_chain = make_json_rag_chain(
-    cfg["system-prompt"], ["pdi-executivo-plataforma-biquara-01"]
+    cfg["system-prompt"], ["pdi-executivo-plataforma-biquara-01"], 2000
 )
 
 
 question = """
-Extraia o nome da bacia e seus respectivos campos no seguinte formato:
+Extraia o nome da bacia e seus respectivos campos no formato json seguindo o padrão:
 {
     bacia: string,
     campos: string[]

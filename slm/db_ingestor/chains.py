@@ -27,7 +27,8 @@ db_size = len(vector_store.store.items())
 print(f"Total db size: {db_size} items.")
 
 
-def make_rag_chain(sys_prompt: str, docs: list[str] = [], llm=llm) -> Runnable:
+def make_rag_chain(sys_prompt: str, docs: list[str] = [], llm=llm, k=None) -> Runnable:
+    k_size = db_size if not k else k
     if docs:
 
         def filter_docs(x):
@@ -35,11 +36,11 @@ def make_rag_chain(sys_prompt: str, docs: list[str] = [], llm=llm) -> Runnable:
             return src in docs
 
         retriever = vector_store.as_retriever(
-            k=db_size,
+            k=k_size,
             search_kwargs={"filter": filter_docs},
         )
     else:
-        retriever = vector_store.as_retriever(k=db_size)
+        retriever = vector_store.as_retriever(k=k_size)
 
     prompt_template = ChatPromptTemplate.from_messages(
         [
@@ -63,5 +64,5 @@ json_llm = ChatOpenAI(
 )
 
 
-def make_json_rag_chain(sys_prompt: str, docs: list[str] = []) -> Runnable:
-    return make_rag_chain(sys_prompt, docs, json_llm)
+def make_json_rag_chain(sys_prompt: str, docs: list[str] = [], k=None) -> Runnable:
+    return make_rag_chain(sys_prompt, docs, json_llm, k=k)
