@@ -13,15 +13,15 @@ targets = list(meta_db.execute("SELECT DISTINCT BACIA, CAMPO FROM METADATA"))
 extracted = []
 
 
-def enhance_prompt(base: str, field: str) -> str:
-    json_template = """
-    Responda em json seguindo o formato: 
-    {
-        valor: number,
-        fonte: string
-    }
-    """
-    return (base + json_template).replace("{campo}", field)
+def enhance_prompt(base: str, field: str, dtype: str) -> str:
+    if dtype == "boolean":
+        json_template = cfg["prompt-suffix-boolean"]
+    elif dtype == "number":
+        json_template = cfg["prompt-suffix-number"]
+    else:
+        json_template = cfg["prompt-suffix-string"]
+
+    return (base + " " + json_template).replace("{campo}", field)
 
 
 def extract_col_by_field(field: str, basin: str) -> tuple:
@@ -40,10 +40,10 @@ def extract_col_by_field(field: str, basin: str) -> tuple:
     ext = [basin, field]
     for quest in cfg["questions"]:
 
-        prompt = enhance_prompt(quest["prompt"], field)
+        prompt = enhance_prompt(quest["prompt"], field, quest["type"])
         var = quest["var"]
 
-        print(f"Extracting {var}: {quest['prompt']}")
+        print(f"Extracting {var}: {prompt}")
         resp = chain.invoke({"input": prompt})
         resp_obj = json.loads(resp["answer"])
 
