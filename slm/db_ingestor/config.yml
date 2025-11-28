@@ -33,6 +33,7 @@ system-prompt: >
   Inclua o local de onde foi retirada a informação na resposta.
 
 txt-docs-dir: "../plain-pages"
+max-rag-ctx: 60000
 # vec-store-path: "vec-stores/oai_3_large_vec_store.db"
 vec-store-table: "oai_3_large_vec_store"
 # vec-store-path: "vec-stores-bkp/oai_3_large_vec_store_marlin.db"

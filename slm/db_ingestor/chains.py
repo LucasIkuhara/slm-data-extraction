@@ -16,11 +16,8 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API_KEY)
 llm = ChatOpenAI(model="gpt-5", api_key=OPENAI_API_KEY)
+db_size = cfg["max-rag-ctx"]
 from vec_store import vector_store
-
-
-db_size = 60_000
-print(f"Total db size: {db_size} items.")
 
 
 def make_rag_chain(sys_prompt: str, docs: list[str] = [], llm=llm, k=None) -> Runnable:
