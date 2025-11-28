@@ -1,5 +1,1 @@
-ALTER TABLE oai_3_large_vec_store ADD COLUMN LANGCHAIN_METADATA_BIN jsonb;
-UPDATE oai_3_large_vec_store SET LANGCHAIN_METADATA_BIN = LANGCHAIN_METADATA::jsonb;
-CREATE INDEX ON oai_3_large_vec_store USING GIN(LANGCHAIN_METADATA_BIN);
-
---CREATE INDEX SOURCE_DOC_IDX ON oai_3_large_vec_store ((LANGCHAIN_METADATA ->> 'source'));
+CREATE INDEX ON oai_3_large_vec_store USING HASH("source");
