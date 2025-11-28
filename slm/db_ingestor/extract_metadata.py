@@ -26,7 +26,10 @@ docs = [x for x in cfg["documents"] if x not in previous_docs]
 print(f"Loaded {len(previous_docs)} previous docs. {len(docs)} outstanding.")
 
 for doc in docs:
-    rag_chain = make_json_rag_chain(cfg["system-prompt"], [doc])
+    sys = (
+        "Descubra o nome da Bacia sobre a qual o documento fala e quais os seus campos"
+    )
+    rag_chain = make_json_rag_chain(sys, [doc], 500)
     question = """
     Extraia o nome da bacia e seus respectivos campos no formato json seguindo o padrão:
     {
