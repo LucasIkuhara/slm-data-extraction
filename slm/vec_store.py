@@ -10,6 +10,6 @@ pg_engine = PGEngine.from_connection_string(
 vector_store = PGVectorStore.create_sync(
     engine=pg_engine,
     table_name=cfg["vec-store-table"],
-    metadata_json_column="LANGCHAIN_METADATA_BIN",
+    metadata_columns=["source"],
     embedding_service=embeddings,
 )
