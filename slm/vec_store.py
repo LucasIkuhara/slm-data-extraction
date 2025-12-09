@@ -11,5 +11,6 @@ vector_store = PGVectorStore.create_sync(
     engine=pg_engine,
     table_name=cfg["vec-store-table"],
     metadata_columns=["source"],
+    schema_name="descom",
     embedding_service=embeddings,
 )
