@@ -3,13 +3,16 @@ from db_ingestor.chains import make_json_rag_chain
 from db_ingestor.config import cfg
 import pandas as pd
 from datetime import datetime
-import sqlite3
 from pathlib import Path
+from metadata_db import query_metadata
 
 
 # Get candidate Basin - Field pairs
-meta_db = sqlite3.connect("metadata.db")
-targets = list(meta_db.execute("SELECT DISTINCT BACIA, CAMPO FROM METADATA"))
+targets = list(
+    query_metadata(
+        "SELECT DISTINCT BACIA, CAMPO, DOCUMENT, TITLE_NAME FROM DESCOM.METADATA WHERE ENABLED = TRUE"
+    )
+)
 extracted = []
 
 
@@ -24,20 +27,14 @@ def enhance_prompt(base: str, field: str, dtype: str) -> str:
     return (base + " " + json_template).replace("{campo}", field)
 
 
-def extract_col_by_field(field: str, basin: str) -> tuple:
-    # Get relevant documents by basin - field
-    docs = meta_db.execute(
-        "SELECT document FROM METADATA WHERE BACIA = ? AND CAMPO = ?",
-        (basin, field),
-    ).fetchall()
-    docs = [x[0] for x in docs]
+def extract_col_by_field(field: str, basin: str, doc: str, title: str) -> tuple:
 
-    print(f"Running [basin={basin}, field={field}]: {docs}")
+    print(f"Running [basin={basin}, field={field}]: {title}")
 
     # Create a chain with rag only containing these docs
-    chain = make_json_rag_chain(cfg["system-prompt"], docs)
+    chain = make_json_rag_chain(cfg["system-prompt"], [doc])
 
-    ext = [basin, field]
+    ext = [basin, field, title]
     for quest in cfg["questions"]:
 
         prompt = enhance_prompt(quest["prompt"], field, quest["type"])
@@ -52,9 +49,9 @@ def extract_col_by_field(field: str, basin: str) -> tuple:
     return tuple(ext)
 
 
-for basin, field in targets:
+for basin, field, doc, title in targets:
     try:
-        field_cols = extract_col_by_field(field, basin)
+        field_cols = extract_col_by_field(field, basin, doc, title)
         extracted.append(field_cols)
     except Exception as err:
         print(f"Warning! Skipped {basin} - {field}. Results will be incomplete")
@@ -65,9 +62,9 @@ for basin, field in targets:
 today = datetime.now()
 dir_name = f"results/{today.strftime('%Y-%m-%d')}"
 Path(dir_name).mkdir(parents=True, exist_ok=True)
-file_path = f"{dir_name}/raw_{today.isoformat()}.csv"
+file_path = f"{dir_name}/out_{today.isoformat()}.csv"
 
-cols = ["Bacia", "Campo"]
+cols = ["Bacia", "Campo", "Document"]
 for quest in cfg["questions"]:
     cols += [quest["var"], quest["var"] + "_src"]
 df = pd.DataFrame(extracted, columns=cols)

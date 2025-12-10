@@ -1,30 +1,35 @@
 import json
 from db_ingestor.chains import make_json_rag_chain
 from db_ingestor.config import cfg
-import sqlite3
+from metadata_db import query_metadata
 
 
-meta_db = sqlite3.connect("metadata.db", autocommit=True)
-meta_db.execute(
+query_metadata(
     """
-CREATE TABLE IF NOT EXISTS metadata (
-    id INTEGER PRIMARY KEY,
-    bacia TEXT,
-    campo TEXT,
-    document TEXT,
-    extracted INTEGER DEFAULT 0,
-    validated INTEGER DEFAULT 0
+CREATE TABLE IF NOT EXISTS descom.metadata
+(
+    id integer NOT NULL,
+    bacia text COLLATE pg_catalog."default",
+    campo text COLLATE pg_catalog."default",
+    document text COLLATE pg_catalog."default",
+    extracted boolean DEFAULT false,
+    validated boolean DEFAULT false,
+    enabled boolean DEFAULT false,
+    title_name text COLLATE pg_catalog."default",
+    is_executive boolean,
+    CONSTRAINT "METADATA_pkey" PRIMARY KEY (id)
 )
 """
 )
 
 # Avoid running on old docs
-previous_docs = meta_db.execute("SELECT DISTINCT DOCUMENT FROM METADATA").fetchall()
+previous_docs = query_metadata(
+    "SELECT DISTINCT DOCUMENT FROM descom.METADATA"
+).fetchall()
 previous_docs = [x[-1] for x in previous_docs]
 print(previous_docs)
 docs = [x for x in cfg["documents"] if x not in previous_docs]
 print(f"Loaded {len(previous_docs)} previous docs. {len(docs)} outstanding.")
-
 for doc in docs:
     sys = (
         "Descubra o nome da Bacia sobre a qual o documento fala e quais os seus campos"
@@ -47,15 +52,14 @@ for doc in docs:
     fields = obj["campos"]
 
     for field in fields:
-        meta_db.execute(
+        query_metadata(
             """
-        INSERT INTO metadata (bacia, campo, document) values (?, ?, ?)
+        INSERT INTO descom.metadata (bacia, campo, document) values (?, ?, ?); COMMIT
         """,
             (basin, field, doc),
         )
-        meta_db.commit()
 
 print(
-    len(list(meta_db.execute("SELECT * FROM metadata"))), "docs loaded into metadata."
+    len(list(query_metadata("SELECT * FROM descom.metadata"))),
+    "docs loaded into metadata.",
 )
-meta_db.close()
