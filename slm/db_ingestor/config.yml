@@ -15,6 +15,22 @@ questions:
     var: skid
     type: boolean
 
+  - prompt: Existe a presença de Plet no campo {campo}?
+    var: plet
+    type: boolean
+
+  - prompt: Existe a presença de Plem no campo {campo}?
+    var: plem
+    type: boolean
+
+  - prompt: Existe a presença de Jumper no campo {campo}?
+    var: jumper
+    type: boolean
+
+  - prompt: Existe a presença de Umbilical no campo {campo}?
+    var: umbilical
+    type: boolean
+
   - prompt: Existe a presença de Manifold no campo {campo}?
     var: manifold
     type: boolean
@@ -39,9 +55,22 @@ questions:
     var: qtd_manifold
     type: number
 
+  - prompt: Qual a quantidade de Plet(s) no campo {campo}?
+    var: qtd_plet
+    type: number
 
-    # Equipamento (booleano)
-    # Está íntegro? (booleano)
+  - prompt: Qual a quantidade de Plem(s) no campo {campo}?
+    var: qtd_plem
+    type: number
+
+  - prompt: Qual a quantidade de Jumper(s) no campo {campo}?
+    var: qtd_jumper
+    type: number
+
+  - prompt: Qual a quantidade de Umbilical(s) no campo {campo}?
+    var: qtd_umbilical
+    type: number
+
 prompt-suffix-boolean: >
   Em caso de resposta verdadeira, o valor deverá ser 1; Em qualquer outro caso, o valor deverá ser 0.
   Responda em json seguindo o formato: 

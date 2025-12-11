@@ -1,2 +1,2 @@
 #!/bin/sh
-poetry run python -m slm_extractor.extract_data
+poetry run python -m db_ingestor.extract_data
