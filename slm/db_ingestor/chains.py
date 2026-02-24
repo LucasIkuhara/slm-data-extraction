@@ -15,7 +15,7 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 # ! OpenAI
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key=OPENAI_API_KEY)
-llm = ChatOpenAI(model="gpt-5", api_key=OPENAI_API_KEY)
+llm = ChatOpenAI(model="gpt-5-mini", api_key=OPENAI_API_KEY)
 db_size = cfg["max-rag-ctx"]
 from vec_store import vector_store
 
@@ -43,7 +43,7 @@ def make_rag_chain(sys_prompt: str, docs: list[str], llm=llm, k=None) -> Runnabl
 
 
 json_llm = ChatOpenAI(
-    model="gpt-5",
+    model="gpt-5-mini",
     api_key=OPENAI_API_KEY,
     model_kwargs=dict(response_format=dict(type="json_object")),
 )

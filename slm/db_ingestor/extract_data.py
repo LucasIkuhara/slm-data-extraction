@@ -10,7 +10,7 @@ from metadata_db import query_metadata
 # Get candidate Basin - Field pairs
 targets = list(
     query_metadata(
-        "SELECT DISTINCT BACIA, CAMPO, DOCUMENT, TITLE_NAME FROM DESCOM.METADATA WHERE ENABLED = TRUE"
+        "SELECT DISTINCT basin, field, name, title FROM DESCOM.DOC_BASIN_FIELDS WHERE ENABLED = TRUE"
     )
 )
 extracted = []
@@ -32,7 +32,7 @@ def extract_col_by_field(field: str, basin: str, doc: str, title: str) -> tuple:
     print(f"Running [basin={basin}, field={field}]: {title}")
 
     # Create a chain with rag only containing these docs
-    chain = make_json_rag_chain(cfg["system-prompt"], [doc])
+    chain = make_json_rag_chain(cfg["system-prompt"], [doc], k=8)
 
     ext = [basin, field, title]
     for quest in cfg["questions"]:
