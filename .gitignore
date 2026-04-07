@@ -7,3 +7,4 @@ pdi-parser/poetry.lock
 slm/ex
 *.db
 slm/log.txt
+**/*.DS_Store
