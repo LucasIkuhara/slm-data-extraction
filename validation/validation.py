@@ -31,6 +31,20 @@ print(gt_df.head())
 
 
 # %%
+# Row-wise Validation
+def get_diff_dict(extracted: dict, ground: dict) -> dict:
+    not_matched = ["Bacia", "Campo"]
+    keys = [x for x in col_map.values() if x not in not_matched]
+    diff = {}
+
+    for key in keys:
+        diff[key] = (extracted[key], ground[key], extracted[key] - ground[key])
+
+    return diff
+
+
+results = []
+
 # Iterate through extracted and compare
 for field in ext_df["BC_CMP"].unique():
     gt = gt_df[gt_df["BC_CMP"] == field.strip()]
@@ -39,7 +53,11 @@ for field in ext_df["BC_CMP"].unique():
         print(f"[WARN]: field {field} not found in Ground Truth dataset.")
         continue
 
-    print(field, len(gt))
-results = []
+    field_gt = gt.iloc[0].to_dict()
+    field_ext = ext_df[ext_df["BC_CMP"] == field].iloc[0].to_dict()
 
-# %%
+    compared = get_diff_dict(field_ext, field_gt)
+    results.append(compared)
+
+compared_df = pd.DataFrame(results)
+compared_df.head()
