@@ -5,6 +5,7 @@ import pandas as pd
 from datetime import datetime
 from pathlib import Path
 from metadata_db import query_metadata
+from os import symlink, remove, path
 
 
 # Get candidate Basin - Field pairs
@@ -69,3 +70,9 @@ for quest in cfg["questions"]:
     cols += [quest["var"], quest["var"] + "_src"]
 df = pd.DataFrame(extracted, columns=cols)
 df.to_csv(file_path, index=False)
+
+# Update pointer to latest
+symlink__name = "result/latest.csv"
+if path.exists(symlink__name):
+    remove(symlink__name)
+symlink(file_path, symlink__name)
