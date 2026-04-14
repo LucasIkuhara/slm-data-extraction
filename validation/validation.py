@@ -3,9 +3,12 @@ import pandas as pd
 
 # %%
 # Read and format Extracted Df
-ext_df = pd.read_csv("../slm/results/latest.csv")
+ext_df = pd.read_parquet(
+    "../slm/results/latest.parquet",
+)
 ext_df["BC_CMP"] = ext_df["Bacia"].str.upper() + ":" + ext_df["Campo"].str.upper()
 ext_df["BC_CMP"] = ext_df["BC_CMP"].str.strip()
+ext_df.drop([f for f in ext_df.columns if "_src" in f], axis="columns", inplace=True)
 
 print(ext_df.head())
 
