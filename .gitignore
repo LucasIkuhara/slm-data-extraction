@@ -8,3 +8,6 @@ slm/ex
 *.db
 slm/log.txt
 **/*.DS_Store
+
+validation/.~lock.ground_truth.xlsx#
+slm/vec-stores-bkp

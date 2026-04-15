@@ -14,7 +14,7 @@ print(ext_df.head())
 
 # %%
 # Read and format Ground Truth Df
-gt_df = pd.read_excel("ground_truth.xlsx", sheet_name="Data (2)", header=2)
+gt_df = pd.read_excel("ground_truth.xlsx", sheet_name="Data", header=2)
 
 # Column mapping
 col_map = {
@@ -24,6 +24,10 @@ col_map = {
     "MANIFOLD _QNT": "qtd_manifold",
     "SKIDS_QNT": "qtd_skid",
     "LDA": "lamina",
+    # "EC": "cabo_elet",
+    "EQ": "manifold",
+    "DR": "duto_rig",
+    "DF": "duto_flex",
 }
 gt_df = gt_df.rename(columns=col_map)
 
@@ -38,7 +42,11 @@ print(gt_df.head())
 def get_diff_dict(extracted: dict, ground: dict) -> dict:
     not_matched = ["Bacia", "Campo"]
     keys = [x for x in col_map.values() if x not in not_matched]
-    diff = {}
+    diff = {
+        "Bacia": extracted["Bacia"],
+        "Campo": extracted["Campo"],
+        "Documento": extracted["Document"],
+    }
 
     for key in keys:
         diff[key] = (extracted[key], ground[key], extracted[key] - ground[key])
@@ -63,4 +71,7 @@ for field in ext_df["BC_CMP"].unique():
     results.append(compared)
 
 compared_df = pd.DataFrame(results)
-compared_df.head()
+
+out_path = "validation.osv"
+print()
+print(compared_df.head())
