@@ -63,16 +63,16 @@ for basin, field, doc, title in targets:
 today = datetime.now()
 dir_name = f"results/{today.strftime('%Y-%m-%d')}"
 Path(dir_name).mkdir(parents=True, exist_ok=True)
-file_path = f"{dir_name}/out_{today.isoformat()}.parquet"
+file_path = f"{dir_name}/out_{today.isoformat()}.xlsx"
 
 cols = ["Bacia", "Campo", "Document"]
 for quest in cfg["questions"]:
     cols += [quest["var"], quest["var"] + "_src"]
 df = pd.DataFrame(extracted, columns=cols)
-df.to_parquet(file_path, index=False)
+df.to_excel(file_path, index=False)
 
 # Update pointer to latest
-symlink__name = "result/latest.parquet"
+symlink__name = "result/latest.xlsx"
 if path.exists(symlink__name):
     remove(symlink__name)
 symlink(file_path, symlink__name)
