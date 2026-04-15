@@ -3,8 +3,8 @@ import pandas as pd
 
 # %%
 # Read and format Extracted Df
-ext_df = pd.read_parquet(
-    "../slm/results/latest.parquet",
+ext_df = pd.read_excel(
+    "../slm/results/latest.xlsx",
 )
 ext_df["BC_CMP"] = ext_df["Bacia"].str.upper() + ":" + ext_df["Campo"].str.upper()
 ext_df["BC_CMP"] = ext_df["BC_CMP"].str.strip()
