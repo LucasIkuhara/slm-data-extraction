@@ -49,7 +49,8 @@ def get_diff_dict(extracted: dict, ground: dict) -> dict:
     }
 
     for key in keys:
-        diff[key] = (extracted[key], ground[key], extracted[key] - ground[key])
+        extracted_val = max(0, extracted[key])
+        diff[key] = (extracted[key], ground[key], extracted_val - ground[key])
 
     return diff
 
