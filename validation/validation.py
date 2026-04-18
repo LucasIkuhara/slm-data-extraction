@@ -1,16 +1,27 @@
 # %%
 import pandas as pd
 
+
+def split_multi_field_rows(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    df["Campo"] = df["Campo"].str.split("/")
+    df = df.explode("Campo")
+    df = df[~df["Campo"].str.contains("/")]
+    df.reset_index()
+    return df
+
+
 # %%
 # Read and format Extracted Df
 ext_df = pd.read_excel(
     "../slm/results/latest.xlsx",
 )
+ext_df = split_multi_field_rows(ext_df)
 ext_df["BC_CMP"] = ext_df["Bacia"].str.upper() + ":" + ext_df["Campo"].str.upper()
 ext_df["BC_CMP"] = ext_df["BC_CMP"].str.strip()
 ext_df.drop([f for f in ext_df.columns if "_src" in f], axis="columns", inplace=True)
 
-print(ext_df.head())
+ext_df.head()
 
 # %%
 # Read and format Ground Truth Df
@@ -30,6 +41,7 @@ col_map = {
     "DF": "duto_flex",
 }
 gt_df = gt_df.rename(columns=col_map)
+gt_df = split_multi_field_rows(gt_df)
 
 gt_df["Bacia"] = gt_df["Bacia"].str.replace("BACIA DE", "").str.replace("BACIA", "")
 gt_df["BC_CMP"] = gt_df["Bacia"] + ":" + gt_df["Campo"]
@@ -50,7 +62,7 @@ def get_diff_dict(extracted: dict, ground: dict) -> dict:
 
     for key in keys:
         extracted_val = max(0, extracted[key])
-        diff[key] = (extracted[key], ground[key], extracted_val - ground[key])
+        diff[key] = extracted_val - ground[key]
 
     return diff
 
@@ -76,3 +88,5 @@ compared_df = pd.DataFrame(results)
 out_path = "validation.osv"
 print()
 print(compared_df.head())
+
+# %%
