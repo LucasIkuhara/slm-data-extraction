@@ -35,12 +35,18 @@ col_map = {
     "MANIFOLD _QNT": "qtd_manifold",
     "SKIDS_QNT": "qtd_skid",
     "LDA": "lamina",
+    "Contract": "empresa",
     # "EC": "cabo_elet",
     "EQ": "manifold",
     "DR": "duto_rig",
     "DF": "duto_flex",
 }
 gt_df = gt_df.rename(columns=col_map)
+gt_df.drop(
+    [x for x in gt_df.columns if x not in col_map.values()],
+    inplace=True,
+    axis="columns",
+)
 gt_df = split_multi_field_rows(gt_df)
 
 gt_df["Bacia"] = gt_df["Bacia"].str.replace("BACIA DE", "").str.replace("BACIA", "")
@@ -52,7 +58,7 @@ print(gt_df.head())
 # %%
 # Row-wise Validation
 def get_diff_dict(extracted: dict, ground: dict) -> dict:
-    not_matched = ["Bacia", "Campo"]
+    not_matched = ["Bacia", "Campo", "empresa"]
     keys = [x for x in col_map.values() if x not in not_matched]
     diff = {
         "Bacia": extracted["Bacia"],
@@ -64,6 +70,8 @@ def get_diff_dict(extracted: dict, ground: dict) -> dict:
         extracted_val = max(0, extracted[key])
         diff[key] = extracted_val - ground[key]
 
+    # Label, simply create a str
+    diff["empresa"] = f"R: {ground['empresa']}; E: {extracted['empresa']}"
     return diff
 
 
@@ -85,8 +93,8 @@ for field in ext_df["BC_CMP"].unique():
 
 compared_df = pd.DataFrame(results)
 
-out_path = "validation.osv"
-print()
+out_path = "validation.xlsx"
+compared_df.to_excel(out_path, index=False)
 print(compared_df.head())
 
 # %%
