@@ -21,6 +21,15 @@ ext_df["BC_CMP"] = ext_df["Bacia"].str.upper() + ":" + ext_df["Campo"].str.upper
 ext_df["BC_CMP"] = ext_df["BC_CMP"].str.strip()
 ext_df.drop([f for f in ext_df.columns if "_src" in f], axis="columns", inplace=True)
 
+# Cast -1 to 0
+text_fields = ["Bacia", "Campo", "Document", "empresa", "BC_CMP"]
+for c in ext_df:
+    if c in text_fields:
+        continue
+    print(c)
+    ext_df[c] = ext_df[c].apply(lambda x: max(0, x))
+
+
 ext_df.head()
 
 # %%
@@ -52,14 +61,13 @@ gt_df = split_multi_field_rows(gt_df)
 gt_df["Bacia"] = gt_df["Bacia"].str.replace("BACIA DE", "").str.replace("BACIA", "")
 gt_df["BC_CMP"] = gt_df["Bacia"] + ":" + gt_df["Campo"]
 gt_df["BC_CMP"] = gt_df["BC_CMP"].str.strip()
-print(gt_df.head())
+gt_df.head()
 
 
 # %%
 # Row-wise Validation
 def get_diff_dict(extracted: dict, ground: dict) -> dict:
-    not_matched = ["Bacia", "Campo", "empresa"]
-    keys = [x for x in col_map.values() if x not in not_matched]
+    keys = [x for x in col_map.values() if x not in text_fields]
     diff = {
         "Bacia": extracted["Bacia"],
         "Campo": extracted["Campo"],
@@ -67,8 +75,7 @@ def get_diff_dict(extracted: dict, ground: dict) -> dict:
     }
 
     for key in keys:
-        extracted_val = max(0, extracted[key])
-        diff[key] = extracted_val - ground[key]
+        diff[key] = extracted[key] - ground[key]
 
     # Label, simply create a str
     diff["empresa"] = f"R: {ground['empresa']}; E: {extracted['empresa']}"
@@ -95,6 +102,15 @@ compared_df = pd.DataFrame(results)
 
 out_path = "validation.xlsx"
 compared_df.to_excel(out_path, index=False)
-print(compared_df.head())
+compared_df.head()
+
+# %%
+# Export latex
+excluded = ["Documento", "Bacia"]
+f_ext = ext_df[[x for x in col_map.values() if x not in excluded]]
+f_ext = f_ext[f_ext["Campo"].isin(compared_df["Campo"].unique())]
+f_ext.columns = [x.replace("_", " ") for x in f_ext.columns]
+
+f_ext.to_latex("extracted.tex", index=False, float_format="%.2f")
 
 # %%
