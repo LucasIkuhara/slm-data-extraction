@@ -3,27 +3,27 @@ questions:
     var: empresa
     type: string
 
-  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os dutos flexíveis estão sendo contemplados no escopo deste programa de descomissionamento
+  - prompt: Levando em somente o capítulo 4 "Caracterização e Avaliação das Alternativas de descomissionamento" verifique se os dutos flexíveis estão sendo contemplados no escopo deste programa de descomissionamento
     var: duto_flex
     type: boolean
 
-  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os dutos rígidos estão sendo contemplados no escopo deste programa de descomissionamento
+  - prompt: Levando em somente o capítulo 4 "Caracterização e Avaliação das Alternativas de descomissionamento" verifique se os dutos rígidos estão sendo contemplados no escopo deste programa de descomissionamento
     var: duto_rig
     type: boolean
 
-  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os skid estão sendo contemplados no escopo deste programa de descomissionamento
+  - prompt: Levando em somente o capítulo 4 "Caracterização e Avaliação das Alternativas de descomissionamento" verifique se os skid estão sendo contemplados no escopo deste programa de descomissionamento
     var: skid
     type: boolean
 
-  # - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os PLET estão sendo contemplados no escopo deste programa de descomissionamento
+  # - prompt: Levando em somente o capítulo 4 "Caracterização e Avaliação das Alternativas de descomissionamento" verifique se os PLET estão sendo contemplados no escopo deste programa de descomissionamento
   #   var: plet
   #   type: boolean
 
-  # - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os PLEM estão sendo contemplados no escopo deste programa de descomissionamento
+  # - prompt: Levando em somente o capítulo 4 "Caracterização e Avaliação das Alternativas de descomissionamento" verifique se os PLEM estão sendo contemplados no escopo deste programa de descomissionamento
   #   var: plem
   #   type: boolean
 
-  # - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os jumpers estão sendo contemplados no escopo deste programa de descomissionamento
+  # - prompt: Levando em somente o capítulo 4 "Caracterização e Avaliação das Alternativas de descomissionamento" verifique se os jumpers estão sendo contemplados no escopo deste programa de descomissionamento
   #   var: jumper
   #   type: boolean
 
@@ -31,11 +31,11 @@ questions:
   #   var: umbilical
   #   type: boolean
 
-  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os manifolds estão sendo contemplados no escopo deste programa de descomissionamento
+  - prompt: Levando em consideração somente o capítulo 4 "Caracterização e Avaliação das Alternativas de descomissionamento" verifique se os manifolds estão sendo contemplados no escopo deste programa de descomissionamento
     var: manifold
     type: boolean
 
-  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os cabos elétricos estão sendo contemplados no escopo deste programa de descomissionamento
+  - prompt: Levando em somente o capítulo 4 "Caracterização e Avaliação das Alternativas de descomissionamento" verifique se os cabos elétricos estão sendo contemplados no escopo deste programa de descomissionamento
     var: cabo_elet
     type: boolean
 

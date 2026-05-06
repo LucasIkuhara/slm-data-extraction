@@ -1,8 +1,14 @@
 from db_ingestor.chains import make_rag_chain
 from db_ingestor.config import cfg
 
-
-rag_chain = make_rag_chain(cfg["system-prompt"], ["PDI_C_P_65"], k=4)
+rag_chain = make_rag_chain(
+    cfg["system-prompt"],
+    [
+        "PDI_E_P_PAG_0",  # Agulha
+        # "pdi-executivo-fpso-cidade-santos1"  # Tambau/Uruguá
+    ],
+    k=4,
+)
 
 if __name__ == "__main__":
     print("Chat with Document")
