@@ -73,6 +73,6 @@ df.to_excel(file_path, index=False)
 
 # Update pointer to latest
 symlink_name = "result/latest.xlsx"
-if path.exists(symlink_name):
+if path.lexists(symlink_name):
     remove(symlink_name)
 symlink(symlink_name, file_path)

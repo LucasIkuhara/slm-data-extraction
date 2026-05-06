@@ -1,49 +1,49 @@
 questions:
-  - prompt: Qual a Empresa contratada para trabalhar no descomissionamento no campo {campo}?
+  - prompt: Verifique qual a empresa Operadora da Instalação na seção Descrição do capítulo de Inventário das Instalações de Produção 
     var: empresa
     type: string
 
-  - prompt: Existe a presença de dutos flexíveis no {campo}?
+  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os dutos flexíveis estão sendo contemplados no escopo deste programa de descomissionamento
     var: duto_flex
     type: boolean
 
-  - prompt: Existe a presença de dutos rígidos no {campo}?
+  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os dutos rígidos estão sendo contemplados no escopo deste programa de descomissionamento
     var: duto_rig
     type: boolean
 
-  - prompt: Existe a presença de Skids no {campo}?
+  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os skid estão sendo contemplados no escopo deste programa de descomissionamento
     var: skid
     type: boolean
 
-  - prompt: Existe a presença de Plet no {campo}?
-    var: plet
-    type: boolean
+  # - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os PLET estão sendo contemplados no escopo deste programa de descomissionamento
+  #   var: plet
+  #   type: boolean
 
-  - prompt: Existe a presença de Plem no {campo}?
-    var: plem
-    type: boolean
+  # - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os PLEM estão sendo contemplados no escopo deste programa de descomissionamento
+  #   var: plem
+  #   type: boolean
 
-  - prompt: Existe a presença de Jumper no {campo}?
-    var: jumper
-    type: boolean
+  # - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os jumpers estão sendo contemplados no escopo deste programa de descomissionamento
+  #   var: jumper
+  #   type: boolean
 
-  - prompt: Existe a presença de Umbilical no {campo}?
-    var: umbilical
-    type: boolean
+  # - prompt: Existe a presença de Umbilical no {campo}?
+  #   var: umbilical
+  #   type: boolean
 
-  - prompt: Existe a presença de Manifold no {campo}?
+  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os manifolds estão sendo contemplados no escopo deste programa de descomissionamento
     var: manifold
     type: boolean
 
-  - prompt: Existe a presença de cabos elétricos no {campo}?
+  - prompt: Levando em consideração o capítulo de Caracterização de Alternativas de descomissionamento verifique se os cabos elétricos estão sendo contemplados no escopo deste programa de descomissionamento
     var: cabo_elet
     type: boolean
 
-  - prompt: Qual a Distância da costa do {campo}? 
+  - prompt: Verifique qual a distância da costa listada na seção Descrição do capítulo de Inventário das Instalações de Produção 
     var: distancia
     type: number
 
-  - prompt: Qual a profundidade de Lâmina d'água do {campo}?
+  - prompt: Verifique qual a Profundidade Batimétrica Média (ou Lâmina d'água - LDA) listada na seção Descrição do capítulo de Inventário das Instalações de Produção 
     var: lamina
     type: number
 
@@ -55,21 +55,21 @@ questions:
     var: qtd_manifold
     type: number
 
-  - prompt: Qual a quantidade de Plet(s) no {campo}?
-    var: qtd_plet
-    type: number
+  # - prompt: Qual a quantidade de Plet(s) no {campo}?
+  #   var: qtd_plet
+  #   type: number
 
-  - prompt: Qual a quantidade de Plem(s) no {campo}?
-    var: qtd_plem
-    type: number
+  # - prompt: Qual a quantidade de Plem(s) no {campo}?
+  #   var: qtd_plem
+  #   type: number
 
-  - prompt: Qual a quantidade de Jumper(s) no {campo}?
-    var: qtd_jumper
-    type: number
+  # - prompt: Qual a quantidade de Jumper(s) no {campo}?
+  #   var: qtd_jumper
+  #   type: number
 
-  - prompt: Qual a quantidade de Umbilical(s) no {campo}?
-    var: qtd_umbilical
-    type: number
+  # - prompt: Qual a quantidade de Umbilical(s) no {campo}?
+  #   var: qtd_umbilical
+  #   type: number
 
 prompt-suffix-boolean: >
   Em caso de resposta verdadeira, o valor deverá ser 1; Em qualquer outro caso, o valor deverá ser 0.

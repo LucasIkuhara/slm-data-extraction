@@ -1,5 +1,6 @@
 # %%
 import pandas as pd
+import numpy as np
 
 
 def split_multi_field_rows(df: pd.DataFrame) -> pd.DataFrame:
@@ -45,11 +46,13 @@ col_map = {
     "SKIDS_QNT": "qtd_skid",
     "LDA": "lamina",
     "Contract": "empresa",
-    # "EC": "cabo_elet",
-    "EQ": "manifold",
+    "CABO ELÉTRICO ": "cabo_elet",
+    "MANIFOLD": "manifold",
     "DR": "duto_rig",
     "DF": "duto_flex",
 }
+non_text_fields = [x for x in col_map.values() if x not in text_fields]
+
 gt_df = gt_df.rename(columns=col_map)
 gt_df.drop(
     [x for x in gt_df.columns if x not in col_map.values()],
@@ -67,14 +70,13 @@ gt_df.head()
 # %%
 # Row-wise Validation
 def get_diff_dict(extracted: dict, ground: dict) -> dict:
-    keys = [x for x in col_map.values() if x not in text_fields]
     diff = {
         "Bacia": extracted["Bacia"],
         "Campo": extracted["Campo"],
         "Documento": extracted["Document"],
     }
 
-    for key in keys:
+    for key in non_text_fields:
         diff[key] = extracted[key] - ground[key]
 
     # Label, simply create a str
@@ -105,12 +107,25 @@ compared_df.to_excel(out_path, index=False)
 compared_df.head()
 
 # %%
-# Export latex
+# Format Results and Export latex
 excluded = ["Documento", "Bacia"]
-f_ext = ext_df[[x for x in col_map.values() if x not in excluded]]
-f_ext = f_ext[f_ext["Campo"].isin(compared_df["Campo"].unique())]
-f_ext.columns = [x.replace("_", " ") for x in f_ext.columns]
 
-f_ext.to_latex("extracted.tex", index=False, float_format="%.2f")
+# Remove extra columns
+fmt_ext = ext_df[[x for x in col_map.values() if x not in excluded]]
+
+# Only include extraction fields with results
+fmt_ext = fmt_ext[fmt_ext["Campo"].isin(compared_df["Campo"].unique())]
+
+results_numeric = []
+for f in non_text_fields:
+    rmse = np.sqrt(np.average(np.square(fmt_ext[f])))
+    mae = np.average(np.absolute(fmt_ext[f]))
+
+    results_numeric.append({"Variável": f, "rmse": rmse})
+
+
+fmt_ext.columns = [x.replace("_", " ") for x in fmt_ext.columns]
+# f_ext.to_latex("extracted.tex", index=False, float_format="%.2f")
+pd.DataFrame(results_numeric)
 
 # %%
