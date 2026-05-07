@@ -109,23 +109,39 @@ compared_df.head()
 # %%
 # Format Results and Export latex
 excluded = ["Documento", "Bacia"]
+printed_fields = [x for x in col_map.values() if x not in excluded]
 
-# Remove extra columns
-fmt_ext = ext_df[[x for x in col_map.values() if x not in excluded]]
+
+def to_formatted_latex(df: pd.DataFrame, name: str):
+    df.style.hide(axis="index").format(precision=2).relabel_index(
+        [x.replace("_", " ") for x in df.columns], axis="columns"
+    ).to_latex(name, hrules=False)
+
 
 # Only include extraction fields with results
-fmt_ext = fmt_ext[fmt_ext["Campo"].isin(compared_df["Campo"].unique())]
+fmt_ext = ext_df[ext_df["Campo"].isin(compared_df["Campo"].unique())]
+
+# Exclude duplicate Tambaú
+fmt_ext = fmt_ext.reset_index()
+fmt_ext = fmt_ext.drop(index=6)
+fmt_ext.loc[5, "Campo"] = "Tambaú/Uruguá"
 
 results_numeric = []
 for f in non_text_fields:
     rmse = np.sqrt(np.average(np.square(fmt_ext[f])))
     mae = np.average(np.absolute(fmt_ext[f]))
+    retrieval_rate = 1 - np.sum(fmt_ext[f]) / len(fmt_ext[f])
+    print(f, list(fmt_ext[f]), retrieval_rate)
 
-    results_numeric.append({"Variável": f, "rmse": rmse})
+    results_numeric.append(
+        {"Variável": f, "rmse": rmse, "Retrieval rate": retrieval_rate, "mae": mae}
+    )
 
+metrics = pd.DataFrame(results_numeric)
 
-fmt_ext.columns = [x.replace("_", " ") for x in fmt_ext.columns]
-# f_ext.to_latex("extracted.tex", index=False, float_format="%.2f")
-pd.DataFrame(results_numeric)
+# Switch _'s for spaces for latex printing
+metrics["Variável"] = [x.replace("_", " ") for x in metrics["Variável"]]
+
+to_formatted_latex(metrics, "metrics.tex")
 
 # %%
