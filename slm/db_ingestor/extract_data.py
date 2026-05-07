@@ -5,8 +5,7 @@ import pandas as pd
 from datetime import datetime
 from pathlib import Path
 from metadata_db import query_metadata
-from os import symlink, remove, path
-
+from pathlib import Path
 
 # Get candidate Basin - Field pairs
 targets = list(
@@ -72,7 +71,7 @@ df = pd.DataFrame(extracted, columns=cols)
 df.to_excel(file_path, index=False)
 
 # Update pointer to latest
-symlink_name = "result/latest.xlsx"
-if path.lexists(symlink_name):
-    remove(symlink_name)
-symlink(symlink_name, file_path)
+symlink = Path("result/latest.xlsx")
+if symlink.exists():
+    symlink.unlink(symlink)
+symlink.symlink_to(Path(file_path))
