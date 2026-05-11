@@ -27,12 +27,12 @@ def enhance_prompt(base: str, field: str, dtype: str) -> str:
     return (base + " " + json_template).replace("{campo}", field)
 
 
-def extract_col_by_field(field: str, basin: str, doc: str, title: str) -> tuple:
+def extract_col_by_field(field: str, basin: str, doc: str, title: str, k: int) -> tuple:
 
     print(f"Running [basin={basin}, field={field}]: {title}")
 
     # Create a chain with rag only containing these docs
-    chain = make_json_rag_chain(cfg["system-prompt"], [doc], k=8)
+    chain = make_json_rag_chain(cfg["system-prompt"], [doc], k=k)
 
     ext = [basin, field, title]
     for quest in cfg["questions"]:
@@ -49,14 +49,15 @@ def extract_col_by_field(field: str, basin: str, doc: str, title: str) -> tuple:
     return tuple(ext)
 
 
-for basin, field, doc, title in targets:
-    try:
-        field_cols = extract_col_by_field(field, basin, doc, title)
-        extracted.append(field_cols)
-    except Exception as err:
-        print(f"Warning! Skipped {basin} - {field}. Results will be incomplete")
-        print(err)
-        continue
+for k in [1, 2, 4, 8, 16]:
+    for basin, field, doc, title in targets:
+        try:
+            field_cols = extract_col_by_field(field, basin, doc, title, k)
+            extracted.append(field_cols)
+        except Exception as err:
+            print(f"Warning! Skipped {basin} - {field}. Results will be incomplete")
+            print(err)
+            continue
 
 # Save results
 today = datetime.now()
