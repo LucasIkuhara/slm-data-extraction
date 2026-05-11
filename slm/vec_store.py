@@ -1,8 +1,7 @@
 from os import environ
 from langchain_postgres import PGEngine, PGVectorStore
-from db_ingestor.chains import embeddings
-from db_ingestor.config import cfg
-
+from chains import embeddings
+from config import cfg
 
 pg_engine = PGEngine.from_connection_string(
     environ["DB_CONN_STRING"],

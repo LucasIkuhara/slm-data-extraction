@@ -1,5 +1,5 @@
-from db_ingestor.chains import make_rag_chain
-from db_ingestor.config import cfg
+from chains import make_rag_chain
+from config import cfg
 
 rag_chain = make_rag_chain(
     cfg["system-prompt"],

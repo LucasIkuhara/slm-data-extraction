@@ -1,6 +1,6 @@
 import json
-from db_ingestor.chains import make_json_rag_chain
-from db_ingestor.config import cfg
+from chains import make_json_rag_chain
+from config import cfg
 import pandas as pd
 from datetime import datetime
 from pathlib import Path

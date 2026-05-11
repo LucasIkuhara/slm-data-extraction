@@ -1,13 +1,11 @@
-import os
 from langchain_openai import OpenAIEmbeddings
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
 from page_reader import PageReader
-from db_ingestor.chains import vector_store
-from db_ingestor.config import cfg
+from chains import vector_store
+from config import cfg
 from datetime import datetime
-
 
 # Collect all unique document tags
 all_docs = vector_store.store.values()

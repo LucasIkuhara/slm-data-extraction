@@ -3,10 +3,8 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.runnables.base import Runnable
 import os
-from db_ingestor.config import cfg
-from langchain_core.vectorstores import InMemoryVectorStore
+from config import cfg
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-
 
 # ! Ollama
 # embeddings = OllamaEmbeddings(model="llama3.2")
