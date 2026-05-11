@@ -74,7 +74,7 @@ df = pd.DataFrame(extracted, columns=cols)
 df.to_excel(file_path, index=False)
 
 # Update pointer to latest
-symlink = Path("result/latest.xlsx")
+symlink = Path("results/latest.xlsx")
 if symlink.exists():
-    symlink.unlink(symlink)
-symlink.symlink_to(Path(file_path))
+    symlink.unlink()
+symlink.symlink_to(file_path)
