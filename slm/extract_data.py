@@ -34,19 +34,21 @@ def extract_col_by_field(field: str, basin: str, doc: str, title: str, k: int) -
     # Create a chain with rag only containing these docs
     chain = make_json_rag_chain(cfg["system-prompt"], [doc], k=k)
 
-    ext = [basin, field, title]
-    for quest in cfg["questions"]:
+    # Start with metadata variables
+    extracted_vars = [basin, field, title, str(k)]
 
-        prompt = enhance_prompt(quest["prompt"], field, quest["type"])
-        var = quest["var"]
+    for base_prompt in cfg["questions"]:
+
+        prompt = enhance_prompt(base_prompt["prompt"], field, base_prompt["type"])
+        var = base_prompt["var"]
 
         print(f"Extracting {var}: {prompt}")
         resp = chain.invoke({"input": prompt})
         resp_obj = json.loads(resp["answer"])
 
         # Append extraction
-        ext += [resp_obj["valor"], resp_obj["fonte"]]
-    return tuple(ext)
+        extracted_vars += [resp_obj["valor"], resp_obj["fonte"]]
+    return tuple(extracted_vars)
 
 
 for k in [1, 2, 4, 8, 16]:
@@ -65,7 +67,7 @@ dir_name = f"results/{today.strftime('%Y-%m-%d')}"
 Path(dir_name).mkdir(parents=True, exist_ok=True)
 file_path = f"{dir_name}/out_{today.isoformat()}.xlsx"
 
-cols = ["Bacia", "Campo", "Document"]
+cols = ["Bacia", "Campo", "Document", "K"]
 for quest in cfg["questions"]:
     cols += [quest["var"], quest["var"] + "_src"]
 df = pd.DataFrame(extracted, columns=cols)

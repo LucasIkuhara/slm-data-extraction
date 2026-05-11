@@ -1,7 +1,7 @@
 from yaml import safe_load
 from os import listdir
 
-with open("db_ingestor/config.yml") as yml:
+with open("config.yml") as yml:
     cfg: dict = safe_load(yml)
 assert cfg, "Missing config.yml"
 
