@@ -27,7 +27,6 @@ text_fields = ["Bacia", "Campo", "Document", "empresa", "BC_CMP"]
 for c in ext_df:
     if c in text_fields:
         continue
-    print(c)
     ext_df[c] = ext_df[c].apply(lambda x: max(0, x))
 
 
@@ -74,10 +73,11 @@ def get_diff_dict(extracted: dict, ground: dict) -> dict:
         "Bacia": extracted["Bacia"],
         "Campo": extracted["Campo"],
         "Documento": extracted["Document"],
+        "K": extracted["K"],
     }
 
     for key in non_text_fields:
-        diff[key] = extracted[key] - ground[key]
+        diff[key] = int(extracted[key]) == int(ground[key])
 
     # Label, simply create a str
     diff["empresa"] = f"R: {ground['empresa']}; E: {extracted['empresa']}"
@@ -87,20 +87,22 @@ def get_diff_dict(extracted: dict, ground: dict) -> dict:
 results = []
 
 # Iterate through extracted and compare
-for field in ext_df["BC_CMP"].unique():
-    gt = gt_df[gt_df["BC_CMP"] == field.strip()]
+k_values = [k for k in ext_df["K"].unique()]
+for k in k_values:
+    for field in ext_df["BC_CMP"].unique():
+        gt = gt_df[gt_df["BC_CMP"] == field.strip()]
 
-    if not len(gt):
-        print(f"[WARN]: field {field} not found in Ground Truth dataset.")
-        continue
+        if not len(gt):
+            print(f"[WARN]: field {field} not found in Ground Truth dataset.")
+            continue
 
-    field_gt = gt.iloc[0].to_dict()
-    field_ext = ext_df[ext_df["BC_CMP"] == field].iloc[0].to_dict()
+        field_gt = gt.iloc[0].to_dict()
+        field_ext = ext_df[ext_df["BC_CMP"] == field].iloc[0].to_dict()
 
-    compared = get_diff_dict(field_ext, field_gt)
-    results.append(compared)
+        compared = get_diff_dict(field_ext, field_gt)
+        results.append(compared)
 
-compared_df = pd.DataFrame(results)
+    compared_df = pd.DataFrame(results)
 
 out_path = "validation.xlsx"
 compared_df.to_excel(out_path, index=False)
@@ -123,19 +125,22 @@ fmt_ext = ext_df[ext_df["Campo"].isin(compared_df["Campo"].unique())]
 
 # Exclude duplicate Tambaú
 fmt_ext = fmt_ext.reset_index()
-fmt_ext = fmt_ext.drop(index=6)
-fmt_ext.loc[5, "Campo"] = "Tambaú/Uruguá"
+fmt_ext = fmt_ext[fmt_ext.Campo != "Tambaú"]
+fmt_ext.loc[fmt_ext["Campo"] == "Uruguá", "Campo"] = "Tambaú/Uruguá"
 
 results_numeric = []
-for f in non_text_fields:
-    rmse = np.sqrt(np.average(np.square(fmt_ext[f])))
-    mae = np.average(np.absolute(fmt_ext[f]))
-    retrieval_rate = 1 - np.sum(fmt_ext[f]) / len(fmt_ext[f])
-    print(f, list(fmt_ext[f]), retrieval_rate)
+for k in k_values:
+    k_df = fmt_ext[fmt_ext["K"] == k]
+    for f in non_text_fields:
+        acc = 1 - np.sum(k_df[f]) / len(k_df[f])
 
-    results_numeric.append(
-        {"Variável": f, "rmse": rmse, "Retrieval rate": retrieval_rate, "mae": mae}
-    )
+        results_numeric.append(
+            {
+                "Variável": f,
+                "K": k,
+                "Accuracy": acc,
+            }
+        )
 
 metrics = pd.DataFrame(results_numeric)
 
