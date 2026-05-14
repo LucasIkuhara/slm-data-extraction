@@ -15,7 +15,7 @@ def split_multi_field_rows(df: pd.DataFrame) -> pd.DataFrame:
 # %%
 # Read and format Extracted Df
 ext_df = pd.read_excel(
-    "../slm/results/latest.xlsx",
+    "../slm/results/prompts_2.xlsx",
 )
 ext_df = split_multi_field_rows(ext_df)
 ext_df["BC_CMP"] = ext_df["Bacia"].str.upper() + ":" + ext_df["Campo"].str.upper()
@@ -29,6 +29,9 @@ for c in ext_df:
         continue
     ext_df[c] = ext_df[c].apply(lambda x: max(0, x))
 
+# Modulate qnt found based on existence flag
+ext_df["qtd_manifold"] = ext_df["qtd_manifold"] * ext_df["manifold"]
+ext_df["qtd_skid"] = ext_df["qtd_skid"] * ext_df["skid"]
 
 ext_df.head()
 
@@ -90,16 +93,20 @@ results = []
 k_values = [k for k in ext_df["K"].unique()]
 for k in k_values:
     for field in ext_df["BC_CMP"].unique():
-        gt = gt_df[gt_df["BC_CMP"] == field.strip()]
 
+        # Get Ground Truth dict filtered by a specific extraction field
+        gt = gt_df[gt_df["BC_CMP"] == field.strip()]
         if not len(gt):
             print(f"[WARN]: field {field} not found in Ground Truth dataset.")
             continue
+        field_ground_truth = gt.iloc[0].to_dict()
 
-        field_gt = gt.iloc[0].to_dict()
-        field_ext = ext_df[ext_df["BC_CMP"] == field].iloc[0].to_dict()
+        # Get extracted dict for a specific extraction field and K value
+        field_extracted = (
+            ext_df[(ext_df["BC_CMP"] == field) & (ext_df["K"] == k)].iloc[0].to_dict()
+        )
 
-        compared = get_diff_dict(field_ext, field_gt)
+        compared = get_diff_dict(field_extracted, field_ground_truth)
         results.append(compared)
 
     compared_df = pd.DataFrame(results)
@@ -148,6 +155,8 @@ metrics = pd.DataFrame(results_numeric)
 metrics["Variável"] = [x.replace("_", " ") for x in metrics["Variável"]]
 
 to_formatted_latex(metrics, "metrics.tex")
-metrics.pivot(index="K", columns=["Variável"]).to_latex("consolidated.tex")
+metrics.pivot(index="K", columns=["Variável"]).style.to_latex(
+    "consolidated.tex", hrules=False
+)
 
 # %%

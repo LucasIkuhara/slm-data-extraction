@@ -11,5 +11,5 @@ slm/log.txt
 
 validation/.~lock.ground_truth.xlsx#
 slm/vec-stores-bkp
-validation/extracted.tex
-validation/metrics.tex
+validation/*.tex
+
