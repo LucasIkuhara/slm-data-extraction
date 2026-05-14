@@ -15,7 +15,7 @@ def split_multi_field_rows(df: pd.DataFrame) -> pd.DataFrame:
 # %%
 # Read and format Extracted Df
 ext_df = pd.read_excel(
-    "../slm/results/prompts_2.xlsx",
+    "../slm/results/latest.xlsx",
 )
 ext_df = split_multi_field_rows(ext_df)
 ext_df["BC_CMP"] = ext_df["Bacia"].str.upper() + ":" + ext_df["Campo"].str.upper()
@@ -128,7 +128,7 @@ def to_formatted_latex(df: pd.DataFrame, name: str):
 
 
 # Only include extraction fields with results
-fmt_ext = ext_df[ext_df["Campo"].isin(compared_df["Campo"].unique())]
+fmt_ext = compared_df[compared_df["Campo"].isin(compared_df["Campo"].unique())]
 
 # Exclude duplicate Tambaú
 fmt_ext = fmt_ext.reset_index()
@@ -139,7 +139,7 @@ results_numeric = []
 for k in k_values:
     k_df = fmt_ext[fmt_ext["K"] == k]
     for f in non_text_fields:
-        acc = 1 - np.sum(k_df[f]) / len(k_df[f])
+        acc = np.sum(k_df[f]) / len(k_df[f])
 
         results_numeric.append(
             {
