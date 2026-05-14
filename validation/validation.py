@@ -40,10 +40,10 @@ gt_df = pd.read_excel("ground_truth.xlsx", sheet_name="Data", header=2)
 col_map = {
     "BASIN": "Bacia",
     "FIELD": "Campo",
-    "COAST_DIST": "distancia",
+    # "COAST_DIST": "distancia",
     "MANIFOLD _QNT": "qtd_manifold",
     "SKIDS_QNT": "qtd_skid",
-    "LDA": "lamina",
+    # "LDA": "lamina",
     "Contract": "empresa",
     "CABO ELÉTRICO ": "cabo_elet",
     "MANIFOLD": "manifold",
@@ -148,5 +148,6 @@ metrics = pd.DataFrame(results_numeric)
 metrics["Variável"] = [x.replace("_", " ") for x in metrics["Variável"]]
 
 to_formatted_latex(metrics, "metrics.tex")
+metrics.pivot(index="K", columns=["Variável"]).to_latex("consolidated.tex")
 
 # %%
