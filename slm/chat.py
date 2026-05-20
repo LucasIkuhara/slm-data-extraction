@@ -4,8 +4,9 @@ from config import cfg
 rag_chain = make_rag_chain(
     cfg["system-prompt"],
     [
-        "PDI_E_P_PAG_0",  # Agulha
+        "PDI_E_P_PAG_01",  # Agulha
         # "pdi-executivo-fpso-cidade-santos1"  # Tambau/Uruguá
+        # "pdi-conceitual-partei-petrobras-plataforma-p-47-viola"  # Marlim
     ],
     k=4,
 )
