@@ -13,14 +13,14 @@ import numpy as np
 categories = ["Prompt 1", "Prompt 2", "Prompt 2 + Regras 1"]
 
 # Mean values (e.g., average accuracy or performance scores)
-mean_values = [85, 78, 92]
+mean_values = [0.70, 0.83, 0.87]
 
 # Error values (e.g., standard deviation or confidence intervals)
 # These represent the uncertainty or variability in the measurements
-error_values = [5, 7, 4]
+error_values = [0.17, 0.18, 0.19]
 
 # Create figure and axis
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots()
 
 # Create bar chart with error bars
 # Scientific paper style: grayscale colors, patterns, and clear contrast
@@ -47,8 +47,8 @@ for i, bar in enumerate(bars):
     bar.set_hatch(patterns[i % len(patterns)])
 
 # Customize the chart with scientific paper styling
-ax.set_xlabel("Algorithms", fontsize=11)
-ax.set_ylabel("Performance Score (%)", fontsize=11)
+ax.set_xlabel("Conjuntos de prompts e regras", fontsize=11)
+ax.set_ylabel("Acurácia", fontsize=11)
 # ax.set_title('Algorithm Performance Comparison with Error Bars',
 #  fontsize=12, pad=15)
 
@@ -61,14 +61,14 @@ ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 
 # Set y-axis limits with some padding
-ax.set_ylim(0, 110)
+ax.set_ylim(0, 1.1)
 
 # Add value labels on top of each bar
 for i, (bar, mean, error) in enumerate(zip(bars, mean_values, error_values)):
     height = bar.get_height()
     ax.text(
         bar.get_x() + bar.get_width() / 2.0,
-        height + error + 2,
+        (height + error) * 1.05,
         f"{mean}±{error}",
         ha="center",
         va="bottom",
@@ -80,11 +80,11 @@ for i, (bar, mean, error) in enumerate(zip(bars, mean_values, error_values)):
 plt.tight_layout()
 
 # Display the chart
-plt.show()
+# plt.savefig("")
 
 # Optional: Save the figure to a file
 # Uncomment the line below to save the chart as a PNG file
-# plt.savefig('bar_chart_with_error_bars.png', dpi=300, bbox_inches='tight')
+plt.savefig("bar_chart_with_error_bars.png", dpi=300, bbox_inches="tight")
 
 print("Bar chart with error bars created successfully!")
 print(f"Categories: {categories}")

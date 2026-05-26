@@ -13,3 +13,4 @@ validation/.~lock.ground_truth.xlsx#
 slm/vec-stores-bkp
 validation/*.tex
 
+validation/bar_chart_with_error_bars.png
